@@ -1,0 +1,27 @@
+CREATE TABLE menu(
+    idProducto int NOT NULL PRIMARY KEY,
+    nombre varchar(100) NOT NULL,
+    precio float NOT NULL
+);
+
+CREATE TABLE trabajadores(
+    legajo int NOT NULL PRIMARY KEY,
+    nombre varchar(100) NOT NULL,
+    tipo varchar (100) NOT NULL,
+    clave varchar (300) NOT NULL
+    fechaAlta Date NOT NULL,
+    fechaBaja Date NOT NULL,
+);
+
+CREATE TABLE pedidos (
+    idComanda int NOT NULL PRIMARY KEY,
+    URLImagen varchar (500),
+    estado varchar (50) NOT NULL,
+    fecha Date NOT NULL,
+    hora varchar (50) NOT NULL
+);
+
+CREATE TABLE mesas ( 
+idMesa int NOT NULL PRIMARY KEY, 
+estado varchar (50) NOT NULL 
+);
