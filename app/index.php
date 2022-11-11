@@ -25,6 +25,7 @@ require_once './db/AccesoDatos.php';
 //require_once './controllers/LoginController.php';
 //require_once './controllers/AutenticadorController.php';
 require_once './controllers/EmpleadoController.php';
+require_once './controllers/ProductoController.php';
 
 // Load ENV
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -41,7 +42,10 @@ $app->addBodyParsingMiddleware();
 
 // Routes
 $app->group('/usuarios', function (RouteCollectorProxy $group) {
-    $group->post('/cargarUsuario', \UsuarioController::class . ':CargarUno') ;
+    $group->post('/cargarUsuario', \EmpleadoController::class . ':CargarUno');
+    $group->get('/traerUsuarios', \EmpleadoController::class . ':TraerTodos') ;
+    $group->post('/cargarPlato', \ProductoController::class . ':CargarUno');
+    $group->get('/traerProductos', \ProductoController::class . ':TraerTodos') ;
     //$group->get('[/]', \UsuarioController::class . ':TraerTodos') ;
     //$group->get('/{usuario}', \UsuarioController::class . ':TraerUno');
     //$group->post('[/]', \UsuarioController::class . ':CargarUno')->add(new CheckPerfilMiddleware());
@@ -55,8 +59,9 @@ $app->post('/login', \AutentificadorController::class . ':CrearTokenLogin');
 
 
 
+
 $app->get('[/]', function (Request $request, Response $response) {    
-    $response->getBody()->write("Login APP ");
+    $response->getBody()->write("La Comanda - TP Programacion III ");
     return $response;
 });
 

@@ -1,41 +1,36 @@
 <?php
-require_once './models/Empleado.php';
-require_once './interfaces/IApiUsable.php';
+require_once './models/Producto.php';
 
-class EmpleadoController extends Empleado
+class ProductoController extends Producto
 {
-    public $tipoPerfiles = ["bartender","cervecero","cocinero","mozo","socio"];
+    public $tipos = ["comida","trago","cerveza"];
     public function CargarUno($request, $response, $args)
     {
         $parametros = $request->getParsedBody();
 
         $nombre = $parametros['nombre'];
-        $perfilEmpleado = $parametros["perfilEmpleado"];
-        $clave = $parametros["clave"];
-        $legajo = $parametros["legajo"];
-
-        // Creamos el usuario
+        $precio =$parametros["precio"];
+        $tipo = $parametros["tipo"];
         try{
-            if(in_array($perfilEmpleado,$this->tipoPerfiles))
-            {
-                $empleado = new Empleado();
-                $empleado->legajo=$legajo;
-                $empleado->nombre = $nombre;
-                $empleado->clave = $clave;
-                $empleado->perfilEmpleado= $perfilEmpleado;
-                $empleado->crearEmpleado();
-                $payload = json_encode(array("mensaje" => "Usuario creado con exito"));
-        
-            }else{
-                $payload=json_encode(array("Error!" => "Perfil de empleado ingresado invalido"));
-            }
-        }catch(\Throwable $ex)
-        {
-            $payload=json_encode(array("Error!" => $ex->getMessage()));
-        }
-        $response->getBody()->write($payload);
-        return $response
-          ->withHeader('Content-Type', 'application/json');
+          if(in_array($tipo,$this->tipos))
+          {
+              $producto = new Producto();
+              $producto->nombre=$nombre;
+              $producto->precio = $precio;
+              $producto->tipo = $tipo;
+              $producto->crearProducto();
+              $payload = json_encode(array("mensaje" => "Producto creado con exito"));
+      
+          }else{
+              $payload=json_encode(array("Error!" => "Tipo de producto equivocado"));
+          }
+      }catch(\Throwable $ex)
+      {
+          $payload=json_encode(array("Error!" => $ex->getMessage()));
+      }
+      $response->getBody()->write($payload);
+      return $response
+        ->withHeader('Content-Type', 'application/json');
     }
 /*
     public function TraerUno($request, $response, $args)
@@ -52,14 +47,14 @@ class EmpleadoController extends Empleado
 */
     public function TraerTodos($request, $response, $args)
     {
-        $lista = Empleado::obtenerTodos();
-        $payload = json_encode(array("listaDeEmpleados" => $lista));
+        $lista = Producto::obtenerTodos();
+        $payload = json_encode(array("listaUsuario" => $lista));
 
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
-  /*  
+ /*   
     public function ModificarUno($request, $response, $args)
     {
         //$parametros = $request->getParsedBody();

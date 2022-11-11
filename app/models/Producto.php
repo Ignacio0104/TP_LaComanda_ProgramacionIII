@@ -9,13 +9,14 @@ class Producto
     public function crearProducto()
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO menu (nombre,precio) 
-        VALUES (:nombre, :precio)");
+        $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO menu (nombre,precio,tipo) 
+        VALUES (:nombre, :precio, :tipo)");
         $consulta->bindValue(':nombre', $this->nombre, PDO::PARAM_STR);
         $consulta->bindValue(':precio', $this->precio, PDO::PARAM_STR);
+        $consulta->bindValue(':tipo', $this->tipo, PDO::PARAM_STR);
         $consulta->execute();
 
-        return $objAccesoDatos->obtenerUltimolegajo();
+        return $objAccesoDatos->obtenerUltimoId();
     }
 
     public static function obtenerTodos()
