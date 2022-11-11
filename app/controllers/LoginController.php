@@ -2,9 +2,9 @@
 require_once './models/Usuario.php';
 require_once './interfaces/IApiUsable.php';
 
-class LoginController extends Usuario
+class LoginController //extends Usuario
 {
-    public function VerificarClave ($request, $response,$args)
+    /*public function VerificarClave ($request, $response,$args)
     {
         //$datos = json_decode(file_get_contents("php://input"), true);
         //$datos= $request->getParsedBody(); 
@@ -16,7 +16,7 @@ class LoginController extends Usuario
             $payload = json_encode(array("mensaje" => "Usuario logueado"));
         }else{
             $payload = json_encode(array("mensaje" => "Error!"));
-        }*/
+        }
         
        if(password_verify($parametros["clave"],$usuarioBaseDeDatos->clave))
         {
@@ -27,6 +27,6 @@ class LoginController extends Usuario
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
-    }
+    }*/
 }
 ?>

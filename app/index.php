@@ -11,19 +11,20 @@ use Slim\Factory\AppFactory;
 use Slim\Routing\RouteCollectorProxy;
 use Slim\Routing\RouteContext;
 
-require_once  './middlewares/MiddlewareLogin.php';
-require_once  './middlewares/CheckDataMiddleWare.php';
-require_once  './middlewares/CheckTokenMiddleware.php';
-require_once './middlewares/CheckPerfilMiddleware.php';
+//require_once  './middlewares/MiddlewareLogin.php';
+//require_once  './middlewares/CheckDataMiddleWare.php';
+//require_once  './middlewares/CheckTokenMiddleware.php';
+//require_once './middlewares/CheckPerfilMiddleware.php';
 
 require __DIR__ . '/../vendor/autoload.php';
 
 require_once './db/AccesoDatos.php';
 // require_once './middlewares/Logger.php';
 
-require_once './controllers/UsuarioController.php';
-require_once './controllers/LoginController.php';
-require_once './controllers/AutenticadorController.php';
+//require_once './controllers/UsuarioController.php';
+//require_once './controllers/LoginController.php';
+//require_once './controllers/AutenticadorController.php';
+require_once './controllers/EmpleadoController.php';
 
 // Load ENV
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -40,15 +41,18 @@ $app->addBodyParsingMiddleware();
 
 // Routes
 $app->group('/usuarios', function (RouteCollectorProxy $group) {
-    $group->get('[/]', \UsuarioController::class . ':TraerTodos') ;
-    $group->get('/{usuario}', \UsuarioController::class . ':TraerUno');
-    $group->post('[/]', \UsuarioController::class . ':CargarUno')->add(new CheckPerfilMiddleware());
-    $group->put("/modificar", \UsuarioController::class . ':ModificarUno')->add(new CheckPerfilMiddleware());
-    $group->delete("/borrar", \UsuarioController::class . ':BorrarUno')->add(new CheckPerfilMiddleware());
-  })->add(new CheckTokenMiddleware());
+    $group->post('/cargarUsuario', \UsuarioController::class . ':CargarUno') ;
+    //$group->get('[/]', \UsuarioController::class . ':TraerTodos') ;
+    //$group->get('/{usuario}', \UsuarioController::class . ':TraerUno');
+    //$group->post('[/]', \UsuarioController::class . ':CargarUno')->add(new CheckPerfilMiddleware());
+    //$group->put("/modificar", \UsuarioController::class . ':ModificarUno')->add(new CheckPerfilMiddleware());
+    //$group->delete("/borrar", \UsuarioController::class . ':BorrarUno')->add(new CheckPerfilMiddleware());
+  });//->add(new CheckTokenMiddleware());
 
 //Genero el token
 $app->post('/login', \AutentificadorController::class . ':CrearTokenLogin');
+
+
 
 
 $app->get('[/]', function (Request $request, Response $response) {    

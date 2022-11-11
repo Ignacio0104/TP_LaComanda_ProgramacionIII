@@ -13,20 +13,20 @@ class Empleado
     public function crearEmpleado()
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO empleados (legajo, nombre,perfilEmpleado,clave,fechaAlta,horaAlta) 
-        VALUES (:legajo, :nombre, :perfilEmpleado, :clave, :fechaAlta, :horaAlta)");
+        $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO trabajadores (legajo,nombre,perfilEmpleado,clave,fechaAlta,horaAlta) 
+        VALUES (:legajo,:nombre, :perfilEmpleado, :clave, :fechaAlta, :horaAlta)");
         $claveHash = password_hash($this->clave, PASSWORD_DEFAULT);
         $fecha = new DateTime(date("d-m-Y"));
         $hora = new DateTime(date("h:i:sa"));
-        $consulta->bindValue(':fechaBaja', date_format($fecha, 'Y-m-d'));
+        $consulta->bindValue(':fechaAlta', date_format($fecha, 'Y-m-d'));
         $consulta->bindValue(':horaAlta', date_format($hora, 'H:i:sa'));
-        $consulta->bindValue(':legajo', $this->legajo, PDO::PARAM_STR);
         $consulta->bindValue(':nombre', $this->nombre, PDO::PARAM_STR);
+        $consulta->bindValue(':legajo', $this->legajo, PDO::PARAM_STR);
         $consulta->bindValue(':clave', $claveHash);
         $consulta->bindValue(':perfilEmpleado', $this->perfilEmpleado, PDO::PARAM_STR);
         $consulta->execute();
 
-        return $objAccesoDatos->obtenerUltimolegajo();
+        return $objAccesoDatos->obtenerUltimoId();
     }
 
     public static function obtenerTodos()
