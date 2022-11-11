@@ -14,8 +14,9 @@ class MesaController extends Mesa
         try{      
             $mesa = new Mesa();
             $mesa->idMesa=$idMesa;
-            $mesa->legajoMozo=$legajo;
-            if($mesa->crearMesa()>0){
+            $mesa->legajoMozo=$legajo;    
+            if($mesa->verificarMozo($mesa)->perfilEmpleado == "mozo"){   
+                $mesa->crearMesa();
                 $payload = json_encode(array("Exito" => "Mesa habilitada con exito"));
             }else{
                 $payload = json_encode(array("Error!" => "Favor revise la informacion ingresada"));

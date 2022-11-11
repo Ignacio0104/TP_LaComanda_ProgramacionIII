@@ -1,5 +1,6 @@
 <?php
 
+require_once './models/Empleado.php';
 class Mesa
 {
     public $idMesa;
@@ -8,16 +9,24 @@ class Mesa
 
     public function crearMesa()
     {
-        echo $this->legajoMozo;
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("UPDATE mesas 
-        SET legajoMozo=IF((SELECT perfilEmpleado FROM trabajadores WHERE trabajadores.legajo=:legajoMozo)='mozo', :legajoMozo, NULL), 
-        estado=IF(legajoMozo IS NULL,'cerrado','cliente esperado pedido') 
-        WHERE mesas.idMesa=:idMesa");
-        $consulta->bindValue(':idMesa', $this->idMesa, PDO::PARAM_STR);
-        $consulta->bindValue(':legajoMozo', $this->legajoMozo, PDO::PARAM_STR);
+        $consulta = $objAccesoDatos->prepararConsulta ("UPDATE mesas 
+        SET legajoMozo = :legajoMozo,
+        estado = 'cliente esperado pedido'
+        WHERE idMesa = :idMesa");
+        $consulta->bindValue(':idMesa', $this->idMesa, PDO::PARAM_INT);
+        $consulta->bindValue(':legajoMozo', $this->legajoMozo, PDO::PARAM_INT);
         $consulta->execute();
         return $consulta->rowCount();
+    }
+
+    public static function verificarMozo($mesa)
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta ("SELECT * FROM trabajadores WHERE legajo = :legajoMozo");
+        $consulta->bindValue(':legajoMozo', $mesa->legajoMozo, PDO::PARAM_INT);
+        $consulta->execute();
+        return $consulta->fetchObject('Empleado');
     }
 
     public static function obtenerTodos()
@@ -51,4 +60,11 @@ class Mesa
         $consulta->execute();
     }
 
+
+
+        /*VERIFICAR POR QUE NO ANDA ESTO
+        $consulta = $objAccesoDatos->prepararConsulta ("UPDATE mesas 
+        SET legajoMozo = IF((SELECT perfilEmpleado FROM trabajadores WHERE legajo = :legajoMozo) ='mozo', :legajoMozo, 0), 
+        estado = IF(legajoMozo = 0,'cerrado','cliente esperado pedido') 
+        WHERE idMesa = :idMesa");*/
 }
