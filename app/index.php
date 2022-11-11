@@ -26,6 +26,7 @@ require_once './db/AccesoDatos.php';
 //require_once './controllers/AutenticadorController.php';
 require_once './controllers/EmpleadoController.php';
 require_once './controllers/ProductoController.php';
+require_once './controllers/MesaController.php';
 
 // Load ENV
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -46,6 +47,7 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
     $group->get('/traerUsuarios', \EmpleadoController::class . ':TraerTodos') ;
     $group->post('/cargarPlato', \ProductoController::class . ':CargarUno');
     $group->get('/traerProductos', \ProductoController::class . ':TraerTodos') ;
+    $group->post('/altaDeMesa', \MesaController::class . ':CargarUno') ;
     //$group->get('[/]', \UsuarioController::class . ':TraerTodos') ;
     //$group->get('/{usuario}', \UsuarioController::class . ':TraerUno');
     //$group->post('[/]', \UsuarioController::class . ':CargarUno')->add(new CheckPerfilMiddleware());

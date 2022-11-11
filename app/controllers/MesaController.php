@@ -1,33 +1,25 @@
 <?php
-require_once './models/Empleado.php';
+require_once './models/Mesa.php';
 require_once './interfaces/IApiUsable.php';
 
 class MesaController extends Mesa
 {
-    public $estados = ["cliente esperado pedido","cliente comiendo","cliente pagando","cerrada"];
+    public $estados = ["cliente esperado pedido","cliente comiendo","cliente pagando","cerrado"];
     public function CargarUno($request, $response, $args)
     {
         $parametros = $request->getParsedBody();
         $idMesa = $parametros['idMesa'];
-        $perfilEmpleado = $parametros["perfilEmpleado"];
-        $clave = $parametros["clave"];
         $legajo = $parametros["legajo"];
-
         // Creamos el usuario
-        try{
-            if(in_array($perfilEmpleado,$this->tipoPerfiles))
-            {
-                $empleado = new Empleado();
-                $empleado->legajo=$legajo;
-                $empleado->nombre = $nombre;
-                $empleado->clave = $clave;
-                $empleado->perfilEmpleado= $perfilEmpleado;
-                $empleado->crearEmpleado();
-                $payload = json_encode(array("mensaje" => "Usuario creado con exito"));
-        
+        try{      
+            $mesa = new Mesa();
+            $mesa->idMesa=$idMesa;
+            $mesa->legajoMozo=$legajo;
+            if($mesa->crearMesa()>0){
+                $payload = json_encode(array("Exito" => "Mesa habilitada con exito"));
             }else{
-                $payload=json_encode(array("Error!" => "Perfil de empleado ingresado invalido"));
-            }
+                $payload = json_encode(array("Error!" => "Favor revise la informacion ingresada"));
+            }    
         }catch(\Throwable $ex)
         {
             $payload=json_encode(array("Error!" => $ex->getMessage()));
