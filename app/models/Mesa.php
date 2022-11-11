@@ -4,14 +4,24 @@ class Mesa
 {
     public $idMesa;
     public $estado;
+    public $legajoMozo;
 
     public function crearMesa()
     {
+
+        /*
+        UPDATE mesas 
+        SET legajoMozo=IF((SELECT perfilEmpleado FROM trabajadores WHERE trabajadores.legajo=1005)="mozo", 1005, null), 
+        estado=IF(legajoMozo IS NULL,"cerrado","ocupado") 
+        WHERE mesas.idMesa=6;
+        */
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO mesas (idMesa,estado) 
-        VALUES (:idMesa, :estado)");
+        $consulta = $objAccesoDatos->prepararConsulta("UPDATE mesas 
+        SET estado = :estado, legajoMozo=:legajoMozo
+        WHERE idMesa=:idMesa");
         $consulta->bindValue(':idMesa', $this->idComanda, PDO::PARAM_STR);
         $consulta->bindValue(':estado', $this->estado, PDO::PARAM_STR);
+        $consulta->bindValue(':legajoMozo', $this->legajoMozo, PDO::PARAM_STR);
         $consulta->execute();
 
         return $objAccesoDatos->obtenerUltimolegajo();
