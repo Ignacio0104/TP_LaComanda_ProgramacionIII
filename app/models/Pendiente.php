@@ -22,15 +22,15 @@ class Pendiente
         $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO pendientes 
         (legajoEmpleado,idComanda,idPlato,idMesa,estado,minutosDemora) 
         VALUES (:legajoEmpleado, :idComanda,:idPlato,:idMesa,:estado,:minutosDemora)");
-        $consulta->bindValue(':legajoEmpleado', $this->legajoEmpleado,PDO::PARAM_STR);
+        $consulta->bindValue(':legajoEmpleado', $this->legajoEmpleado,PDO::PARAM_INT);
         $consulta->bindValue(':idComanda', $this->idComanda,PDO::PARAM_STR);
-        $consulta->bindValue(':idPlato', $this->idPlato, PDO::PARAM_STR);
-        $consulta->bindValue(':idMesa', $this->idMesa, PDO::PARAM_STR);
+        $consulta->bindValue(':idPlato', $this->idPlato, PDO::PARAM_INT);
+        $consulta->bindValue(':idMesa', $this->idMesa, PDO::PARAM_INT);
         $consulta->bindValue(':estado', "En preparacion");
-        $consulta->bindValue(':minutosDemora', $this->minutosDemora, PDO::PARAM_STR);
+        $consulta->bindValue(':minutosDemora', $this->minutosDemora, PDO::PARAM_INT);
         $consulta->execute();
 
-        return $objAccesoDatos->obtenerUltimolegajo();
+        return $objAccesoDatos->obtenerUltimoId();
     }
 
     public static function obtenerTodos()

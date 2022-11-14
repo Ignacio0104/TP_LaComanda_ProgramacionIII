@@ -1,36 +1,37 @@
 <?php
 require_once './models/Pendiente.php';
+require_once './models/Mesa.php';
+require_once './models/Comanda.php';
+require_once './models/Producto.php';
 
 class PendienteCotroller 
 {
     public function CargarUno($request, $response, $args)
     {
         $parametros = $request->getParsedBody();
-        $pendiente = new Pendiente();
-        $pendiente->idComanda = $parametros["idComanda"];
-        $pendiente->idPlato = $parametros["idPlato"];
-        $pendiente->idMesa = $parametros["idMesa"];
-        $pendiente->estado = "En preparacion";
-        $pendiente->minutosDemora= $parametros["minutos"];
-        $pendiente->legajoEmpleado = Pendiente::elegirTrabajor($parametros["idPlato"]);
-        if($comanda->verificarMesa($parametros["mesa"])>0)
-        {
-          try{     
-            if(isset($parametros['URLImagen'])){
-              $comanda->URLimagen = $parametros['URLImagen'];
-            };
-            $comanda->idMesa=$parametros["mesa"];
-            $comanda->idComanda = $comanda->crearCodigoComanda();
-            $comanda->crearComanda();
-            $payload = json_encode(array("mensaje" => "Comanda creada con exito. El codigo de comanda es $comanda->idComanda"));           
-          }catch(\Throwable $ex)
+
+        try{
+          $pendiente = new Pendiente();
+          $comandaAuxiliar = Comanda::obtenerComandaPorIdentificador($parametros["idComanda"]);
+          $productoAuxiliar = Producto::obtenerProductoPorId($parametros["idPlato"]);
+     
+          if($comandaAuxiliar!= null && $productoAuxiliar != null)
           {
-              $payload=json_encode(array("Error!" => $ex->getMessage()));
+            $pendiente->idComanda = $parametros["idComanda"];
+            $pendiente->idMesa = $comandaAuxiliar->idMesa;
+            $pendiente->legajoEmpleado = Pendiente::elegirTrabajor($parametros["idPlato"]);
+            $pendiente->idPlato= $parametros["idPlato"];
+            $pendiente->estado = "En preparacion";
+            $pendiente->minutosDemora= $parametros["minutos"];
+            $pendiente->crearPendiente();
+            $payload=json_encode(array("Exito!" => "Se creó el pendiente correctamente"));
+          }else{
+            $payload=json_encode(array("Error!" => "Revisar comanda y producto"));
           }
-        }else{
-          $payload=json_encode(array("Error!" => "Numero de mesa no existe"));
+        }catch(\Throwable $ex)
+        {
+            $payload=json_encode(array("Error!" => $ex->getMessage()));
         }
-       
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
