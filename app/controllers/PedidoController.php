@@ -1,7 +1,7 @@
 <?php
 require_once './models/Comanda.php';
 
-class PedidoController extends Comanda
+class PedidoController 
 {
     public function CargarUno($request, $response, $args)
     {
@@ -14,7 +14,10 @@ class PedidoController extends Comanda
             if(isset($parametros['URLImagen'])){
               $comanda->URLimagen = $parametros['URLImagen'];
             };
-            $payload = json_encode(array("mensaje" => "Comanda creada con exito"));           
+            $comanda->idMesa=$parametros["mesa"];
+            $comanda->idComanda = $comanda->crearCodigoComanda();
+            $comanda->crearComanda();
+            $payload = json_encode(array("mensaje" => "Comanda creada con exito. El codigo de comanda es $comanda->idComanda"));           
           }catch(\Throwable $ex)
           {
               $payload=json_encode(array("Error!" => $ex->getMessage()));
@@ -42,8 +45,8 @@ class PedidoController extends Comanda
 */
     public function TraerTodos($request, $response, $args)
     {
-        $lista = Empleado::obtenerTodos();
-        $payload = json_encode(array("listaDeEmpleados" => $lista));
+        $lista = Comanda::obtenerTodos();
+        $payload = json_encode(array("listaDePedidos" => $lista));
 
         $response->getBody()->write($payload);
         return $response

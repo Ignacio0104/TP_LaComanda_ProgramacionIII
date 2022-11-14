@@ -50,6 +50,7 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
     $group->get('/traerProductos', \ProductoController::class . ':TraerTodos') ;
     $group->post('/altaDeMesa', \MesaController::class . ':CargarUno') ;
     $group->post('/altaPedido', \PedidoController::class . ':CargarUno') ;
+    $group->get('/traerPedidos', \PedidoController::class . ':TraerTodos') ;
     //$group->get('[/]', \UsuarioController::class . ':TraerTodos') ;
     //$group->get('/{usuario}', \UsuarioController::class . ':TraerUno');
     //$group->post('[/]', \UsuarioController::class . ':CargarUno')->add(new CheckPerfilMiddleware());

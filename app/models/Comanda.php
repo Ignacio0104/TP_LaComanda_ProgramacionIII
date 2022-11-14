@@ -19,13 +19,13 @@ class Comanda
         $hora = new DateTime(date("h:i:sa"));
         $consulta->bindValue(':fechaAlta', date_format($fecha, 'Y-m-d'));
         $consulta->bindValue(':horaAlta', date_format($hora, 'H:i:sa'));
-        $consulta->bindValue(':idComanda', $this->crearCodigoComanda(), PDO::PARAM_STR);
+        $consulta->bindValue(':idComanda', $this->idComanda, PDO::PARAM_STR);
         $consulta->bindValue(':URLimagen', $this->URLimagen, PDO::PARAM_STR);
         $consulta->bindValue(':idMesa', $this->idMesa, PDO::PARAM_STR);
         $consulta->bindValue(':estado', "En preparacion", PDO::PARAM_STR);
         $consulta->execute();
 
-        return $objAccesoDatos->obtenerUltimolegajo();
+        return $objAccesoDatos->obtenerUltimoId();
     }
 
     public static function obtenerTodos()
