@@ -1,36 +1,39 @@
 <?php
-require_once './models/Producto.php';
+require_once './models/Pendiente.php';
 
-class ProductoController extends Producto
+class PendienteCotroller 
 {
-    public $tipos = ["bartender","cervecero","cocinero"];
     public function CargarUno($request, $response, $args)
     {
         $parametros = $request->getParsedBody();
-
-        $nombre = $parametros['nombre'];
-        $precio =$parametros["precio"];
-        $tipo = $parametros["tipo"];
-        try{
-          if(in_array($tipo,$this->tipos))
+        $pendiente = new Pendiente();
+        $pendiente->idComanda = $parametros["idComanda"];
+        $pendiente->idPlato = $parametros["idPlato"];
+        $pendiente->idMesa = $parametros["idMesa"];
+        $pendiente->estado = "En preparacion";
+        $pendiente->minutosDemora= $parametros["minutos"];
+        $pendiente->legajoEmpleado = Pendiente::elegirTrabajor($parametros["idPlato"]);
+        if($comanda->verificarMesa($parametros["mesa"])>0)
+        {
+          try{     
+            if(isset($parametros['URLImagen'])){
+              $comanda->URLimagen = $parametros['URLImagen'];
+            };
+            $comanda->idMesa=$parametros["mesa"];
+            $comanda->idComanda = $comanda->crearCodigoComanda();
+            $comanda->crearComanda();
+            $payload = json_encode(array("mensaje" => "Comanda creada con exito. El codigo de comanda es $comanda->idComanda"));           
+          }catch(\Throwable $ex)
           {
-              $producto = new Producto();
-              $producto->nombre=$nombre;
-              $producto->precio = $precio;
-              $producto->tipo = $tipo;
-              $producto->crearProducto();
-              $payload = json_encode(array("mensaje" => "Producto creado con exito"));
-      
-          }else{
-              $payload=json_encode(array("Error!" => "Tipo de producto equivocado"));
+              $payload=json_encode(array("Error!" => $ex->getMessage()));
           }
-      }catch(\Throwable $ex)
-      {
-          $payload=json_encode(array("Error!" => $ex->getMessage()));
-      }
-      $response->getBody()->write($payload);
-      return $response
-        ->withHeader('Content-Type', 'application/json');
+        }else{
+          $payload=json_encode(array("Error!" => "Numero de mesa no existe"));
+        }
+       
+        $response->getBody()->write($payload);
+        return $response
+          ->withHeader('Content-Type', 'application/json');
     }
 /*
     public function TraerUno($request, $response, $args)
@@ -47,14 +50,14 @@ class ProductoController extends Producto
 */
     public function TraerTodos($request, $response, $args)
     {
-        $lista = Producto::obtenerTodos();
-        $payload = json_encode(array("listaUsuario" => $lista));
+        $lista = Comanda::obtenerTodos();
+        $payload = json_encode(array("listaDePedidos" => $lista));
 
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
- /*   
+  /*  
     public function ModificarUno($request, $response, $args)
     {
         //$parametros = $request->getParsedBody();
@@ -93,4 +96,6 @@ class ProductoController extends Producto
         return $response
           ->withHeader('Content-Type', 'application/json');
     }*/
+
+  
 }

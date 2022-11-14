@@ -1,5 +1,10 @@
 <?php
 
+require_once './models/Empleado.php';
+require_once './models/Mesa.php';
+require_once './models/Producto.php';
+require_once './models/Comanda.php';
+
 class Pendiente
 {
     public $idPendiente;
@@ -90,6 +95,12 @@ class Pendiente
         $consulta->bindValue(':estado', "listo para servir");
         $consulta->bindValue(':horaFinalizacion', date_format($hora, 'H:i:sa'));
         $consulta->execute();
+    }
+
+    public static function elegirTrabajor($idPlato)
+    {
+        $legajosEmpleados= Empleado::obtenerEmpleadosPorTipo($idPlato);
+        return $legajosEmpleados[rand(0,count($legajosEmpleados))];
     }
 
 }
