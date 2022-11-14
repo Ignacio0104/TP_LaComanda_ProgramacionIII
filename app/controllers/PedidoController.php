@@ -1,33 +1,28 @@
 <?php
-require_once './models/Mesa.php';
-require_once './interfaces/IApiUsable.php';
+require_once './models/Comanda.php';
 
-class MesaController extends Mesa
+class PedidoController extends Comanda
 {
-    public $estados = ["cliente esperado pedido","cliente comiendo","cliente pagando","cerrado"];
     public function CargarUno($request, $response, $args)
     {
         $parametros = $request->getParsedBody();
-        $idMesa = $parametros['idMesa'];
-        $legajo = $parametros["legajo"];
         // Creamos el usuario
-        try{      
-            $mesa = new Mesa();
-            $mesa->idMesa=$idMesa;
-            $mesa->legajoMozo=$legajo;    
-            if($mesa->verificarMozo($mesa)->perfilEmpleado == "mozo"){   
-                if($mesa->crearMesa()>0){
-                  $payload = json_encode(array("Exito" => "Mesa habilitada con exito"));
-                }else{
-                  $payload = json_encode(array("Error" => "Favor revise la informacion de la mesa"));
-                }
-            }else{
-                $payload = json_encode(array("Error!" => "Favor revise que el empleado sea un mozo"));
-            }    
-        }catch(\Throwable $ex)
+        $comanda = new Comanda();
+        if($comanda->verificarMesa($parametros["mesa"])>0)
         {
-            $payload=json_encode(array("Error!" => $ex->getMessage()));
+          try{     
+            if(isset($parametros['URLImagen'])){
+              $comanda->URLimagen = $parametros['URLImagen'];
+            };
+            $payload = json_encode(array("mensaje" => "Comanda creada con exito"));           
+          }catch(\Throwable $ex)
+          {
+              $payload=json_encode(array("Error!" => $ex->getMessage()));
+          }
+        }else{
+          $payload=json_encode(array("Error!" => "Numero de mesa no existe"));
         }
+       
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
@@ -47,8 +42,8 @@ class MesaController extends Mesa
 */
     public function TraerTodos($request, $response, $args)
     {
-        $lista = Mesa::obtenerTodos();
-        $payload = json_encode(array("listaDeMesas" => $lista));
+        $lista = Empleado::obtenerTodos();
+        $payload = json_encode(array("listaDeEmpleados" => $lista));
 
         $response->getBody()->write($payload);
         return $response
@@ -93,4 +88,6 @@ class MesaController extends Mesa
         return $response
           ->withHeader('Content-Type', 'application/json');
     }*/
+
+  
 }
