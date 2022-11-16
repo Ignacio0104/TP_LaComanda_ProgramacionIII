@@ -1,25 +1,26 @@
 <?php
-require_once './models/Pendiente.php';
+require_once './models/ProductoPedido.php';
 require_once './models/Mesa.php';
 require_once './models/Comanda.php';
 require_once './models/Producto.php';
 
-class PendienteCotroller 
+class ProductoPedidoController 
 {
     public function CargarUno($request, $response, $args)
     {
         $parametros = $request->getParsedBody();
 
         try{
-          $pendiente = new Pendiente();
+          $pendiente = new ProductoPedido();
+          
           $comandaAuxiliar = Comanda::obtenerComandaPorIdentificador($parametros["idComanda"]);
+         
           $productoAuxiliar = Producto::obtenerProductoPorId($parametros["idPlato"]);
-     
           if($comandaAuxiliar!= null && $productoAuxiliar != null)
           {
             $pendiente->idComanda = $parametros["idComanda"];
             $pendiente->idMesa = $comandaAuxiliar->idMesa;
-            $pendiente->legajoEmpleado = Pendiente::elegirTrabajor($parametros["idPlato"]);
+            $pendiente->legajoEmpleado = ProductoPedido::elegirTrabajor($parametros["idPlato"])->legajo;
             $pendiente->idPlato= $parametros["idPlato"];
             $pendiente->estado = "En preparacion";
             $pendiente->minutosDemora= $parametros["minutos"];

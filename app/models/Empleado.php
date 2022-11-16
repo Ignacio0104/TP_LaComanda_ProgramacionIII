@@ -54,19 +54,18 @@ class Empleado
         $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM empleados WHERE legajo = :legajo");
         $consulta->bindValue(':legajo', $legajo, PDO::PARAM_STR);
         $consulta->execute();
-
         return $consulta->fetchObject('Empleado');
     }
 
     public static function obtenerEmpleadosPorTipo($idProducto)
     {
-        $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("SELECT legajo FROM trabajadores 
-        WHERE perfilEmpleado = (SELECT tipo from menu WHERE idProducto = :idProducto");
-        $consulta->bindValue(':idProducto', $idProducto, PDO::PARAM_STR);
-        $consulta->execute();
 
-        return $consulta->fetchAll(PDO::FETCH_ASSOC);
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM trabajadores 
+        WHERE perfilEmpleado = (SELECT tipo from menu WHERE idProducto = :idProducto)");
+        $consulta->bindValue(':idProducto', $idProducto, PDO::PARAM_INT);
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_CLASS, 'Empleado');
     }
 
     public static function modificarEmpleado($empleado)
@@ -104,8 +103,4 @@ class Empleado
         $consulta->execute();
     }
 
-    public function __toString()
-    {
-        return "legajo: $this->legajo | Usuario: $this->usuario" ;
-    }
 }
