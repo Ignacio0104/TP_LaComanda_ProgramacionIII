@@ -19,7 +19,7 @@ class ProductoPedido
     public function crearPendiente()
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO pendientes 
+        $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO pedidos 
         (legajoEmpleado,idComanda,idPlato,idMesa,estado,minutosDemora) 
         VALUES (:legajoEmpleado, :idComanda,:idPlato,:idMesa,:estado,:minutosDemora)");
         echo $this->legajoEmpleado;
@@ -41,7 +41,7 @@ class ProductoPedido
     public static function obtenerTodos()
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pendientes");
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pedidos");
         $consulta->execute();
 
         return $consulta->fetchAll(PDO::FETCH_CLASS, 'Pendiente');
@@ -50,7 +50,7 @@ class ProductoPedido
     public static function obtenerPendientePorEmpleado($legajoEmpleado)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pendientes WHERE legajoEmpleado = :legajoEmpleado");
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pedidos WHERE legajoEmpleado = :legajoEmpleado");
         $consulta->bindValue(':legajoEmpleado', $legajoEmpleado, PDO::PARAM_STR);
         $consulta->execute();
 
@@ -61,7 +61,7 @@ class ProductoPedido
     public static function obtenerPendientePorComanda($idComanda)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pendientes WHERE idComanda = :idComanda");
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pedidos WHERE idComanda = :idComanda");
         $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_STR);
         $consulta->execute();
 
@@ -71,7 +71,7 @@ class ProductoPedido
     public static function obtenerPendientePorMesa($idMesa)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pendientes WHERE idMesa = :idMesa");
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pedidos WHERE idMesa = :idMesa");
         $consulta->bindValue(':idMesa', $idMesa, PDO::PARAM_STR);
         $consulta->execute();
 
@@ -81,7 +81,7 @@ class ProductoPedido
     public static function modificarEstadoPendiente($pendiente)
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDato->prepararConsulta("UPDATE pendientes 
+        $consulta = $objAccesoDato->prepararConsulta("UPDATE pedidos 
         SET estado = :estado, 
         WHERE idProductoPedido = :idProductoPedido");
         $consulta->bindValue(':estado', $pendiente->estado, PDO::PARAM_STR);
@@ -92,7 +92,7 @@ class ProductoPedido
     public static function cerrarPendiente($idProductoPedido)
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDato->prepararConsulta("UPDATE pendientes 
+        $consulta = $objAccesoDato->prepararConsulta("UPDATE pedidos 
         SET horaFinalizacion = :horaFinalizacion, estado = :estado
          WHERE legajo = :legajo");
         $hora = new DateTime(date("h:i:sa"));

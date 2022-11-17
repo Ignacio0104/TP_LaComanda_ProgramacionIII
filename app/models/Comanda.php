@@ -13,7 +13,7 @@ class Comanda
     public function crearComanda()
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO pedidos (idComanda,URLimagen,estado,fechaAlta,horaAlta,idMesa) 
+        $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO comandas (idComanda,URLimagen,estado,fechaAlta,horaAlta,idMesa) 
         VALUES (:idComanda, :URLimagen, :estado, :fechaAlta, :horaAlta, :idMesa)");
         $fecha = new DateTime(date("d-m-Y"));
         $hora = new DateTime(date("h:i:sa"));
@@ -31,7 +31,7 @@ class Comanda
     public static function obtenerTodos()
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pedidos");
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM comandas");
         $consulta->execute();
 
         return $consulta->fetchAll(PDO::FETCH_CLASS, 'Comanda');
@@ -41,7 +41,7 @@ class Comanda
     public static function obtenerComandaPorIdentificador($idComanda)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pedidos WHERE idComanda = :idComanda");
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM comandas WHERE idComanda = :idComanda");
         $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_STR);
         $consulta->execute();
 
@@ -51,7 +51,7 @@ class Comanda
     public static function modificarEstadoComanda($comanda)
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDato->prepararConsulta("UPDATE pedidos 
+        $consulta = $objAccesoDato->prepararConsulta("UPDATE comandas 
         SET estado = :estado, 
         WHERE idComanda = :idComanda");
         $consulta->bindValue(':estado', $comanda->estado, PDO::PARAM_STR);
@@ -90,7 +90,7 @@ class Comanda
     public static function verificarMesa($idMesa)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("SELECT COUNT(1) FROM mesas WHERE mesas.idMesa = :idMesa");
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT COUNT(1) FROM mesas WHERE mesas.idMesa = :idMesa AND mesas.estado = 'cerrado'");
         $consulta->bindValue(':idMesa', $idMesa, PDO::PARAM_STR);
         $consulta->execute();
 

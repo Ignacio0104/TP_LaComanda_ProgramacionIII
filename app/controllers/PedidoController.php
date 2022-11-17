@@ -23,7 +23,7 @@ class PedidoController
               $payload=json_encode(array("Error!" => $ex->getMessage()));
           }
         }else{
-          $payload=json_encode(array("Error!" => "Numero de mesa no existe"));
+          $payload=json_encode(array("Error!" => "Numero de mesa no existe o la mesa ya está ocupada"));
         }
        
         $response->getBody()->write($payload);
