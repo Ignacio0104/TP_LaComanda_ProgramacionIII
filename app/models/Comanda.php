@@ -97,4 +97,5 @@ class Comanda
         return $consulta->fetchColumn();
     }
 
+  
 }
