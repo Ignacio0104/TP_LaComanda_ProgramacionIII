@@ -7,7 +7,7 @@ require_once './models/Comanda.php';
 
 class ProductoPedido
 {
-    public $idProductoPedido;
+    public $idPendiente;
     public $legajoEmpleado;
     public $idComanda;
     public $idPlato;
@@ -22,11 +22,6 @@ class ProductoPedido
         $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO pedidos 
         (legajoEmpleado,idComanda,idPlato,idMesa,estado,minutosDemora) 
         VALUES (:legajoEmpleado, :idComanda,:idPlato,:idMesa,:estado,:minutosDemora)");
-        echo $this->legajoEmpleado;
-        echo $this->idComanda;
-        echo $this->idPlato;
-        echo $this->idMesa;
-        echo $this->minutosDemora;
         $consulta->bindValue(':legajoEmpleado', $this->legajoEmpleado,PDO::PARAM_INT);
         $consulta->bindValue(':idComanda', $this->idComanda,PDO::PARAM_STR);
         $consulta->bindValue(':idPlato', $this->idPlato, PDO::PARAM_INT);
@@ -44,7 +39,7 @@ class ProductoPedido
         $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pedidos");
         $consulta->execute();
 
-        return $consulta->fetchAll(PDO::FETCH_CLASS, 'Pendiente');
+        return $consulta->fetchAll(PDO::FETCH_CLASS, 'ProductoPedido');
     }
 
     public static function obtenerPendientePorEmpleado($legajoEmpleado)
@@ -54,7 +49,7 @@ class ProductoPedido
         $consulta->bindValue(':legajoEmpleado', $legajoEmpleado, PDO::PARAM_STR);
         $consulta->execute();
 
-        return $consulta->fetchObject('Pendiente');
+        return $consulta->fetchAll(PDO::FETCH_CLASS, 'ProductoPedido');
     }
 
     
@@ -65,7 +60,7 @@ class ProductoPedido
         $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_STR);
         $consulta->execute();
 
-        return $consulta->fetchObject('Pendiente');
+        return $consulta->fetchObject('ProductoPedido');
     }
 
     public static function obtenerPendientePorMesa($idMesa)
@@ -75,7 +70,7 @@ class ProductoPedido
         $consulta->bindValue(':idMesa', $idMesa, PDO::PARAM_STR);
         $consulta->execute();
 
-        return $consulta->fetchObject('Pendiente');
+        return $consulta->fetchObject('ProductoPedido');
     }
 
     public static function modificarEstadoPendiente($pendiente)
@@ -85,18 +80,18 @@ class ProductoPedido
         SET estado = :estado, 
         WHERE idProductoPedido = :idProductoPedido");
         $consulta->bindValue(':estado', $pendiente->estado, PDO::PARAM_STR);
-        $consulta->bindValue(':idProductoPedido', $pendiente->idProductoPedido, PDO::PARAM_INT);
+        $consulta->bindValue(':idPendiente', $pendiente->idPendiente, PDO::PARAM_INT);
         $consulta->execute();
     }
 
-    public static function cerrarPendiente($idProductoPedido)
+    public static function cerrarPendiente($idPendiente)
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDato->prepararConsulta("UPDATE pedidos 
         SET horaFinalizacion = :horaFinalizacion, estado = :estado
          WHERE legajo = :legajo");
         $hora = new DateTime(date("h:i:sa"));
-        $consulta->bindValue(':idProductoPedido', $idProductoPedido, PDO::PARAM_INT);
+        $consulta->bindValue(':idPendiente', $idPendiente, PDO::PARAM_INT);
         $consulta->bindValue(':estado', "listo para servir");
         $consulta->bindValue(':horaFinalizacion', date_format($hora, 'H:i:sa'));
         $consulta->execute();

@@ -12,7 +12,7 @@ class AutentificadorController extends AutentificadorJWT
         {
             if(password_verify($parametros["clave"],$usuarioBaseDeDatos->clave))
             {
-                $datos = array('usuario' => $usuarioBaseDeDatos->nombre, 'clave' => $usuarioBaseDeDatos->clave
+                $datos = array('legajo'=> $usuarioBaseDeDatos->legajo,'usuario' => $usuarioBaseDeDatos->nombre, 'clave' => $usuarioBaseDeDatos->clave
                 ,"perfil_usuario"=> $usuarioBaseDeDatos->perfilEmpleado);
                 $token = AutentificadorJWT::CrearToken($datos);
                 $payload = json_encode(array('Usuario logueado con éxito!' => $token));

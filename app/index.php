@@ -14,6 +14,7 @@ use Slim\Routing\RouteContext;
 //require_once  './middlewares/MiddlewareLogin.php';
 require_once  './middlewares/CheckMozoMiddleware.php';
 require_once  './middlewares/CheckTokenMiddleware.php';
+require_once  './middlewares/CheckSocioMiddleware.php';
 //require_once './middlewares/CheckPerfilMiddleware.php';
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -45,14 +46,15 @@ $app->addBodyParsingMiddleware();
 
 // Routes
 $app->group('/usuarios', function (RouteCollectorProxy $group) {
-    $group->post('/cargarUsuario', \EmpleadoController::class . ':CargarUno');
+    $group->post('/cargarUsuario', \EmpleadoController::class . ':CargarUno')->add(new CheckSocioMiddleware());;
     $group->get('/traerUsuarios', \EmpleadoController::class . ':TraerTodos');
-    $group->post('/cargarPlato', \ProductoController::class . ':CargarUno');
+    $group->post('/cargarPlato', \ProductoController::class . ':CargarUno')->add(new CheckSocioMiddleware());
     $group->get('/traerProductos', \ProductoController::class . ':TraerTodos');
     $group->post('/altaDeMesa', \MesaController::class . ':CargarUno')->add(new CheckMozoMiddleware());
-    $group->post('/altaPedido', \ComandaController::class . ':CargarUno');
+    $group->post('/altaPedido', \ComandaController::class . ':CargarUno')->add(new CheckMozoMiddleware());
     $group->get('/traerPedidos', \ComandaController::class . ':TraerTodos');
-    $group->post('/altaPendiente', \ProductoPedidoController::class . ':CargarUno');
+    $group->post('/altaPendiente', \ProductoPedidoController::class . ':CargarUno')->add(new CheckMozoMiddleware());
+    $group->get('/traerPendientes', \ProductoPedidoController::class . ':TraerPendientesPersonales');
     //$group->get('[/]', \UsuarioController::class . ':TraerTodos') ;
     //$group->get('/{usuario}', \UsuarioController::class . ':TraerUno');
     //$group->post('[/]', \UsuarioController::class . ':CargarUno')->add(new CheckPerfilMiddleware());

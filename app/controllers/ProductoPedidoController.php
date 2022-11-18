@@ -59,6 +59,24 @@ class ProductoPedidoController
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
+
+    
+    public function TraerPendientesPersonales($request, $response, $args)
+    {
+        $header = $request->getHeaderLine(("Authorization"));
+        $token = trim(explode("Bearer",$header)[1]);
+        $data = AutentificadorJWT::ObtenerData($token);
+        $lista = ProductoPedido::obtenerPendientePorEmpleado($data->legajo);
+        if(!$lista)
+        {
+          $payload = json_encode(array("listaDePedidos" => "Este usuario no tiene pendientes"));
+        }else{
+          $payload = json_encode(array("listaDePedidos" => $lista));
+        }
+        $response->getBody()->write($payload);
+        return $response
+          ->withHeader('Content-Type', 'application/json');
+    }
   /*  
     public function ModificarUno($request, $response, $args)
     {

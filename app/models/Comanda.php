@@ -48,6 +48,7 @@ class Comanda
         return $consulta->fetchObject('Comanda');
     }
 
+
     public static function modificarEstadoComanda($comanda)
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();

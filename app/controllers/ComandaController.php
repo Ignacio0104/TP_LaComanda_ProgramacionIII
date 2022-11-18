@@ -51,6 +51,7 @@ class ComandaController
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
+
   /*  
     public function ModificarUno($request, $response, $args)
     {
