@@ -64,6 +64,7 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
 
 //Genero el token
 $app->post('/login', \AutentificadorController::class . ':CrearTokenLogin');
+$app->get('/esperaMesa', \MesaController::class . ':TraerEsperaMesa');
 
 
 

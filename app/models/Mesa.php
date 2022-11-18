@@ -38,6 +38,18 @@ class Mesa
         return $consulta->fetchAll(PDO::FETCH_CLASS, 'Mesa');
     }
 
+    public static function obtenerTiempoEspera($idMesa,$idComanda)
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta('SELECT MAX(minutosDemora) 
+        FROM pedidos WHERE idMesa=:idMesa AND idComanda = :idComanda AND estado = "En preparacion"');
+        $consulta->bindValue(':idMesa', $idMesa, PDO::PARAM_INT);
+        $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_STR);
+        $consulta->execute();
+
+        return $consulta->fetchColumn();
+    }
+
 
     public static function obtenerMesaPorIdentificador($idMesa)
     {

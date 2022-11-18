@@ -54,6 +54,16 @@ class MesaController extends Mesa
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
+
+    public function TraerEsperaMesa($request, $response, $args)
+    {
+        $minutos = Mesa::obtenerTiempoEspera($_GET["idMesa"],$_GET["idComanda"]);
+        $payload = json_encode(array("Los minutos que tiene de demora su mesa son: " => $minutos));
+
+        $response->getBody()->write($payload);
+        return $response
+          ->withHeader('Content-Type', 'application/json');
+    }
   /*  
     public function ModificarUno($request, $response, $args)
     {
