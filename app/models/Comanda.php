@@ -91,7 +91,7 @@ class Comanda
     public static function verificarMesa($idMesa)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("SELECT COUNT(1) FROM mesas WHERE mesas.idMesa = :idMesa AND mesas.estado = 'cerrado'");
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT COUNT(1) FROM mesas WHERE mesas.idMesa = :idMesa AND mesas.estado = 'cliente esperando mozo'");
         $consulta->bindValue(':idMesa', $idMesa, PDO::PARAM_STR);
         $consulta->execute();
 

@@ -16,6 +16,11 @@ class ComandaController
             $comanda->idMesa=$parametros["mesa"];
             $comanda->idComanda = $comanda->crearCodigoComanda();
             $comanda->crearComanda();
+            
+            $mesaAux= Mesa::obtenerMesaPorIdentificador($parametros["mesa"]);
+            $mesaAux->estado="Cliente esperando pedido";
+  
+            Mesa::modificarEstadoMesa($mesaAux);
             $payload = json_encode(array("mensaje" => "Comanda creada con exito. El codigo de comanda es $comanda->idComanda"));           
           }catch(\Throwable $ex)
           {

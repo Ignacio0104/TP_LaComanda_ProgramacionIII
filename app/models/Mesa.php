@@ -12,7 +12,7 @@ class Mesa
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDatos->prepararConsulta ("UPDATE mesas 
         SET legajoMozo = :legajoMozo,
-        estado = 'cliente esperado pedido'
+        estado = 'cliente esperando mozo'
         WHERE idMesa = :idMesa");
         $consulta->bindValue(':idMesa', $this->idMesa, PDO::PARAM_INT);
         $consulta->bindValue(':legajoMozo', $this->legajoMozo, PDO::PARAM_INT);
@@ -65,7 +65,7 @@ class Mesa
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDato->prepararConsulta("UPDATE mesas 
-        SET estado = :estado, 
+        SET estado = :estado 
         WHERE idMesa = :idMesa");
         $consulta->bindValue(':estado', $mesa->estado, PDO::PARAM_STR);
         $consulta->bindValue(':idMesa', $mesa->idMesa, PDO::PARAM_INT);
