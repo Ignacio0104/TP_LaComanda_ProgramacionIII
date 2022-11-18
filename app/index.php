@@ -13,7 +13,7 @@ use Slim\Routing\RouteContext;
 
 //require_once  './middlewares/MiddlewareLogin.php';
 //require_once  './middlewares/CheckDataMiddleWare.php';
-//require_once  './middlewares/CheckTokenMiddleware.php';
+require_once  './middlewares/CheckTokenMiddleware.php';
 //require_once './middlewares/CheckPerfilMiddleware.php';
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -23,7 +23,7 @@ require_once './db/AccesoDatos.php';
 
 //require_once './controllers/UsuarioController.php';
 //require_once './controllers/LoginController.php';
-//require_once './controllers/AutenticadorController.php';
+require_once './controllers/AutenticadorController.php';
 require_once './controllers/EmpleadoController.php';
 require_once './controllers/ProductoController.php';
 require_once './controllers/MesaController.php';
@@ -58,7 +58,7 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
     //$group->post('[/]', \UsuarioController::class . ':CargarUno')->add(new CheckPerfilMiddleware());
     //$group->put("/modificar", \UsuarioController::class . ':ModificarUno')->add(new CheckPerfilMiddleware());
     //$group->delete("/borrar", \UsuarioController::class . ':BorrarUno')->add(new CheckPerfilMiddleware());
-  });//->add(new CheckTokenMiddleware());
+  })->add(new CheckTokenMiddleware());
 
 //Genero el token
 $app->post('/login', \AutentificadorController::class . ':CrearTokenLogin');

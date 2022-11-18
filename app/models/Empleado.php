@@ -51,7 +51,7 @@ class Empleado
     public static function obtenerEmpleadoPorLegajo($legajo)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM empleados WHERE legajo = :legajo");
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM trabajadores WHERE legajo = :legajo");
         $consulta->bindValue(':legajo', $legajo, PDO::PARAM_STR);
         $consulta->execute();
         return $consulta->fetchObject('Empleado');
