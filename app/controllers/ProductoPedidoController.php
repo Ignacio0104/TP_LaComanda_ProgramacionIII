@@ -95,9 +95,11 @@ class ProductoPedidoController
         $parametros = $request->getParsedBody();
 
         $idPendiente = $parametros["idPendiente"];
+        $idComanda = $parametros["idComanda"];
         $retorno = ProductoPedido::ModificarEstadoPedido($data->legajo,$idPendiente);
         if($retorno === 1)
         {
+          ProductoPedido::cerrarPendiente($idComanda);
           $payload = json_encode(array("Exito!" => "Se actualiazó el estado del pedido"));
         }else{
           $payload = json_encode(array("Error!" => "No se encontró el pendiente. Verificar trabajador y id pedido"));

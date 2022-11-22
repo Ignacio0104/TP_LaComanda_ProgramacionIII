@@ -98,16 +98,14 @@ class ProductoPedido
     }
 
 
-    public static function cerrarPendiente($idPendiente)
+    public static function cerrarPendiente($idComanda)
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDato->prepararConsulta("UPDATE pedidos 
-        SET horaFinalizacion = :horaFinalizacion, estado = :estado
-         WHERE legajo = :legajo");
-        $hora = new DateTime(date("h:i:sa"));
-        $consulta->bindValue(':idPendiente', $idPendiente, PDO::PARAM_INT);
-        $consulta->bindValue(':estado', "listo para servir");
-        $consulta->bindValue(':horaFinalizacion', date_format($hora, 'H:i:sa'));
+        $consulta = $objAccesoDato->prepararConsulta("UPDATE comandas 
+        SET estado = CASE WHEN (SELECT COUNT(*) FROM PEDIDOS WHERE idComanda = :idComanda
+        AND estado = 'En preparacion')=0 THEN 'Pedido terminado' ELSE 'En preparacion' END 
+        WHERE idComanda = :idComanda");
+        $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_STR);
         $consulta->execute();
     }
 
