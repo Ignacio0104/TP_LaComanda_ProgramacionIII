@@ -32,19 +32,7 @@ class MesaController extends Mesa
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
-/*
-    public function TraerUno($request, $response, $args)
-    {
-        // Buscamos usuario por nombre
-        $usr = $args['usuario'];
-        $usuario = Empleado::obtenerUsuario($usr);
-        $payload = json_encode($usuario);
 
-        $response->getBody()->write($payload);
-        return $response
-          ->withHeader('Content-Type', 'application/json');
-    }
-*/
     public function TraerTodos($request, $response, $args)
     {
         $lista = Mesa::obtenerTodos();
@@ -65,7 +53,7 @@ class MesaController extends Mesa
           ->withHeader('Content-Type', 'application/json');
     }
 
-    public function CerrarMesa($request, $response, $args)
+    public function CerrarCuenta($request, $response, $args)
     {
       $parametros = $request->getParsedBody();
       $idMesa = $parametros['idMesa'];
@@ -76,6 +64,21 @@ class MesaController extends Mesa
         $payload = json_encode(array("Error! " => "Favor verifique la información ingresada"));
       }
 
+        $response->getBody()->write($payload);
+        return $response
+          ->withHeader('Content-Type', 'application/json');
+    }
+
+    public function CerrarMesa($request, $response, $args)
+    {
+      $parametros = $request->getParsedBody();
+      $idMesa = $parametros['idMesa'];
+
+      if(Mesa::cerrarMesaSQL($idMesa)>0){
+        $payload = json_encode(array("Exito!  " => "EsStado de la mesa modificado"));
+      }else{
+        $payload = json_encode(array("Error! " => "Favor verifique la información ingresada"));
+      }
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
