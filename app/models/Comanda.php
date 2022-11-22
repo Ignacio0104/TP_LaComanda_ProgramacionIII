@@ -48,6 +48,15 @@ class Comanda
         return $consulta->fetchObject('Comanda');
     }
 
+    public static function obtenerComandasTerminadas()
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM comandas WHERE estado = 'Pedido terminado'");
+        $consulta->execute();
+
+        return $consulta->fetchObject('Comanda');
+    }
+
 
     public static function modificarEstadoComanda($comanda)
     {

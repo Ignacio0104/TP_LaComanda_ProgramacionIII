@@ -99,8 +99,13 @@ class ProductoPedidoController
         $retorno = ProductoPedido::ModificarEstadoPedido($data->legajo,$idPendiente);
         if($retorno === 1)
         {
-          ProductoPedido::cerrarPendiente($idComanda);
-          $payload = json_encode(array("Exito!" => "Se actualiazó el estado del pedido"));
+           if(ProductoPedido::verificarPedido($idComanda)==0){
+              ProductoPedido::cerrarPendiente($idComanda);
+              $payload = json_encode(array("Exito!" => "La comanda ya está completa"));
+           }else{
+            $payload = json_encode(array("Exito!" => "Se actualiazó el estado del pedido"));
+           }
+         
         }else{
           $payload = json_encode(array("Error!" => "No se encontró el pendiente. Verificar trabajador y id pedido"));
         }

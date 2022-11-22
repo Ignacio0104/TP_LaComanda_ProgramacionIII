@@ -160,7 +160,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njg3MzIyODcsImV4cCI6MTY2ODc5MjI4NywiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsidXN1YXJpbyI6IlBlZHJvIiwiY2xhdmUiOiIkMnkkMTAkN21vWlNHckV6MURcL3BweFI1cWFDWk9DUngxRkg5aGdWNEE2bzQ1TUZuZmN5SzZ4LnZyUk4yIiwicGVyZmlsX3VzdWFyaW8iOiJzb2NpbyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.jm7rZ8MjCKN9Kby9RwHZWvOrr2Dbax7yHyig40nrE5k",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxMjk5ODIsImV4cCI6MTY2OTE4OTk4MiwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.1pbEGADUNpScrjkzp8e48qmu41HoLIOLIb_ghHr2aok",
 							"type": "string"
 						}
 					]
@@ -172,7 +172,7 @@
 					"formdata": [
 						{
 							"key": "idMesa",
-							"value": "60000",
+							"value": "50000",
 							"type": "text"
 						},
 						{
@@ -205,7 +205,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njg3MzQ0NDAsImV4cCI6MTY2ODc5NDQ0MCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDAyLCJ1c3VhcmlvIjoiUGVkcm8iLCJjbGF2ZSI6IiQyeSQxMCQ3bW9aU0dyRXoxRFwvcHB4UjVxYUNaT0NSeDFGSDloZ1Y0QTZvNDVNRm5mY3lLNngudnJSTjIiLCJwZXJmaWxfdXN1YXJpbyI6InNvY2lvIn0sImFwcCI6IlRlc3QgSldUIn0.ZgI4wOP_jaoWbsfjDnMQqJ5BLYBkWOWlRG8MpFMceW8",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njg3MzcyMzksImV4cCI6MTY2ODc5NzIzOSwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.V6BPZlkTj46yU9PdqHrgnv98SZjSJc7tpQ-nMjGCsko",
 							"type": "string"
 						}
 					]
@@ -217,7 +217,7 @@
 					"formdata": [
 						{
 							"key": "mesa",
-							"value": "30000",
+							"value": "40000",
 							"type": "text"
 						},
 						{
@@ -250,7 +250,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njg3MzIyODcsImV4cCI6MTY2ODc5MjI4NywiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsidXN1YXJpbyI6IlBlZHJvIiwiY2xhdmUiOiIkMnkkMTAkN21vWlNHckV6MURcL3BweFI1cWFDWk9DUngxRkg5aGdWNEE2bzQ1TUZuZmN5SzZ4LnZyUk4yIiwicGVyZmlsX3VzdWFyaW8iOiJzb2NpbyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.jm7rZ8MjCKN9Kby9RwHZWvOrr2Dbax7yHyig40nrE5k",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNDg3NzcsImV4cCI6MTY2OTIwODc3NywiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDEwLCJ1c3VhcmlvIjoiQnJhbmRvbiIsImNsYXZlIjoiJDJ5JDEwJGRMNjZucTIwVTE0TlN3TkkubDY4ZU9pRy5Jd1l2Ymw2REhaOUNud0FqamlLYVdLaEJGODhDIiwicGVyZmlsX3VzdWFyaW8iOiJjb2NpbmVybyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.SYSuT6eR8mSGkAeXzdW16GLAvOYP7yfI_xBQ4HH2aAY",
 							"type": "string"
 						}
 					]
@@ -292,17 +292,17 @@
 					"formdata": [
 						{
 							"key": "idComanda",
-							"value": "6fwat",
+							"value": "2hys0",
 							"type": "text"
 						},
 						{
 							"key": "idPlato",
-							"value": "10",
+							"value": "12",
 							"type": "text"
 						},
 						{
 							"key": "minutos",
-							"value": "15",
+							"value": "5",
 							"type": "text"
 						}
 					]
@@ -364,7 +364,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njg3MzUwMTgsImV4cCI6MTY2ODc5NTAxOCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDEwLCJ1c3VhcmlvIjoiQnJhbmRvbiIsImNsYXZlIjoiJDJ5JDEwJGRMNjZucTIwVTE0TlN3TkkubDY4ZU9pRy5Jd1l2Ymw2REhaOUNud0FqamlLYVdLaEJGODhDIiwicGVyZmlsX3VzdWFyaW8iOiJjb2NpbmVybyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.OM4pLeGyiaLVPUR6d-hJzHjLtRcbeKS9ZkeeZIovj7E",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxMzAxMjYsImV4cCI6MTY2OTE5MDEyNiwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDEwLCJ1c3VhcmlvIjoiQnJhbmRvbiIsImNsYXZlIjoiJDJ5JDEwJGRMNjZucTIwVTE0TlN3TkkubDY4ZU9pRy5Jd1l2Ymw2REhaOUNud0FqamlLYVdLaEJGODhDIiwicGVyZmlsX3VzdWFyaW8iOiJjb2NpbmVybyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.AuOK_7jOCwOzH-ivnCufAQ4mchYwpzRlj7h3l2p9HVc",
 							"type": "string"
 						}
 					]
@@ -381,6 +381,140 @@
 					"path": [
 						"usuarios",
 						"traerPendientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer espera mesa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/esperaMesa?idMesa=40000&idComanda=2hys0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"esperaMesa"
+					],
+					"query": [
+						{
+							"key": "idMesa",
+							"value": "40000"
+						},
+						{
+							"key": "idComanda",
+							"value": "2hys0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer todos los pendientes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxMzAxMjYsImV4cCI6MTY2OTE5MDEyNiwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDEwLCJ1c3VhcmlvIjoiQnJhbmRvbiIsImNsYXZlIjoiJDJ5JDEwJGRMNjZucTIwVTE0TlN3TkkubDY4ZU9pRy5Jd1l2Ymw2REhaOUNud0FqamlLYVdLaEJGODhDIiwicGVyZmlsX3VzdWFyaW8iOiJjb2NpbmVybyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.AuOK_7jOCwOzH-ivnCufAQ4mchYwpzRlj7h3l2p9HVc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/usuarios/traerTodosPendientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"usuarios",
+						"traerTodosPendientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Completar pedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNDg3NzcsImV4cCI6MTY2OTIwODc3NywiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDEwLCJ1c3VhcmlvIjoiQnJhbmRvbiIsImNsYXZlIjoiJDJ5JDEwJGRMNjZucTIwVTE0TlN3TkkubDY4ZU9pRy5Jd1l2Ymw2REhaOUNud0FqamlLYVdLaEJGODhDIiwicGVyZmlsX3VzdWFyaW8iOiJjb2NpbmVybyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.SYSuT6eR8mSGkAeXzdW16GLAvOYP7yfI_xBQ4HH2aAY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idPendiente",
+							"value": "112",
+							"type": "text"
+						},
+						{
+							"key": "idComanda",
+							"value": "6fwat",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/usuarios/completarPedido",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"usuarios",
+						"completarPedido"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver pendientes mozo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNDkyMjgsImV4cCI6MTY2OTIwOTIyOCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.irDDPaajNrv1ISvHhvWCyOD8QB_8PYER--iBuUFqo8M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/usuarios/traerPendienteMozo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"usuarios",
+						"traerPendienteMozo"
 					]
 				}
 			},

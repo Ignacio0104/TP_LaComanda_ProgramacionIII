@@ -57,6 +57,16 @@ class ComandaController
           ->withHeader('Content-Type', 'application/json');
     }
 
+    public function TraerTodasTerminadas($request, $response, $args)
+    {
+        $lista = Comanda::obtenerComandasTerminadas();
+        $payload = json_encode(array("Pedidos listos para servir" => $lista));
+
+        $response->getBody()->write($payload);
+        return $response
+          ->withHeader('Content-Type', 'application/json');
+    }
+
   /*  
     public function ModificarUno($request, $response, $args)
     {

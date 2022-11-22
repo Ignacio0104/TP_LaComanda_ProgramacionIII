@@ -98,17 +98,48 @@ class ProductoPedido
     }
 
 
-    public static function cerrarPendiente($idComanda)
+    /*public static function cerrarPendiente($idComanda)
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDato->prepararConsulta("UPDATE comandas 
         SET estado = CASE WHEN (SELECT COUNT(*) FROM PEDIDOS 
+        WHERE idComanda = :idComandaTres AND estado = 'En preparacion')=0 
+        THEN 'Pedido terminado' ELSE 'En preparacion' END, 
+        horaBaja = CASE WHEN (SELECT COUNT(*) FROM PEDIDOS 
         WHERE idComanda = :idComandaDos AND estado = 'En preparacion')=0 
-        THEN 'Pedido terminado' ELSE 'En preparacion' END 
+        THEN :horaBaja ELSE '0' END 
         WHERE idComanda = :idComanda");
+        $hora = new DateTime(date("h:i:sa"));
+        $consulta->bindValue(':horaBaja', date_format($hora, 'H:i:sa'));
         $consulta->bindValue(":idComanda", $idComanda, PDO::PARAM_STR);
         $consulta->bindValue(":idComandaDos", $idComanda, PDO::PARAM_STR);
+        $consulta->bindValue(":idComandaTres", $idComanda, PDO::PARAM_STR);
+        $consulta->bindValue(":idComandaCuatro", $idComanda, PDO::PARAM_STR);
         $consulta->execute();
+    }*/
+
+     public static function cerrarPendiente($idComanda)
+    {
+        $objAccesoDato = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDato->prepararConsulta("UPDATE comandas 
+        SET estado = 'Pedido terminado', 
+        horaBaja = :horaBaja 
+        WHERE idComanda = :idComanda");
+        $hora = new DateTime(date("h:i:sa"));
+        $consulta->bindValue(':horaBaja', date_format($hora, 'H:i:sa'));
+        $consulta->bindValue(":idComanda", $idComanda, PDO::PARAM_STR);
+        $consulta->execute();
+    }
+
+    public static function verificarPedido($idComanda)
+    {
+        $objAccesoDato = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDato->prepararConsulta("SELECT COUNT(*) FROM PEDIDOS 
+        WHERE idComanda = :idComanda AND estado = 'En preparacion'");
+        $consulta->bindValue(":idComanda", $idComanda, PDO::PARAM_STR);
+        $consulta->execute();
+
+        return$consulta->fetchColumn();
     }
 
     public static function elegirTrabajor($idPlato)
