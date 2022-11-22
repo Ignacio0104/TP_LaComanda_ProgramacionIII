@@ -69,8 +69,6 @@ class ProductoPedidoController
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
-
-
     
     public function TraerPendientesPersonales($request, $response, $args)
     {
@@ -83,6 +81,26 @@ class ProductoPedidoController
           $payload = json_encode(array("listaDePedidos" => "Este usuario no tiene pendientes"));
         }else{
           $payload = json_encode(array("listaDePedidos" => $lista));
+        }
+        $response->getBody()->write($payload);
+        return $response
+          ->withHeader('Content-Type', 'application/json');
+    }
+
+    public function CompletarPedido($request, $response, $args)
+    {
+        $header = $request->getHeaderLine(("Authorization"));
+        $token = trim(explode("Bearer",$header)[1]);
+        $data = AutentificadorJWT::ObtenerData($token);
+        $parametros = $request->getParsedBody();
+
+        $idPendiente = $parametros["idPendiente"];
+        $retorno = ProductoPedido::ModificarEstadoPedido($data->legajo,$idPendiente);
+        if($retorno === 1)
+        {
+          $payload = json_encode(array("Exito!" => "Se actualiazó el estado del pedido"));
+        }else{
+          $payload = json_encode(array("Error!" => "No se encontró el pendiente. Verificar trabajador y id pedido"));
         }
         $response->getBody()->write($payload);
         return $response
