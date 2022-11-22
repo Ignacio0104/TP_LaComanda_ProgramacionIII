@@ -15,7 +15,7 @@ class AutentificadorController extends AutentificadorJWT
                 $datos = array('legajo'=> $usuarioBaseDeDatos->legajo,'usuario' => $usuarioBaseDeDatos->nombre, 'clave' => $usuarioBaseDeDatos->clave
                 ,"perfil_usuario"=> $usuarioBaseDeDatos->perfilEmpleado);
                 $token = AutentificadorJWT::CrearToken($datos);
-                $payload = json_encode(array('Usuario logueado con éxito!' => $token));
+                $payload = json_encode(array('Usuario logueado con éxito! Rol: '.$usuarioBaseDeDatos->perfilEmpleado => $token));
                 $response->getBody()->write($payload);
 
             }else{

@@ -52,13 +52,24 @@ class ProductoPedidoController
 */
     public function TraerTodos($request, $response, $args)
     {
-        $lista = Comanda::obtenerTodos();
+        $lista = ProductoPedido::obtenerTodos();
         $payload = json_encode(array("listaDePedidos" => $lista));
 
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
+
+    public function TraerTodosPendientes($request, $response, $args)
+    {
+        $lista = ProductoPedido::obtenerPendientes();
+        $payload = json_encode(array("listaDePedidos" => $lista));
+
+        $response->getBody()->write($payload);
+        return $response
+          ->withHeader('Content-Type', 'application/json');
+    }
+
 
     
     public function TraerPendientesPersonales($request, $response, $args)

@@ -42,6 +42,15 @@ class ProductoPedido
         return $consulta->fetchAll(PDO::FETCH_CLASS, 'ProductoPedido');
     }
 
+    public static function obtenerPendientes()
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pedidos WHERE estado = 'En preparacion' ");
+        $consulta->execute();
+
+        return $consulta->fetchAll(PDO::FETCH_CLASS, 'ProductoPedido');
+    }
+
     public static function obtenerPendientePorEmpleado($legajoEmpleado)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
