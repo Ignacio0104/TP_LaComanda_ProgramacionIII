@@ -72,6 +72,22 @@ class Mesa
         $consulta->execute();
     }
 
+    public static function modificarEstadoConIdMesa($idMesa,$estado)
+    {
+        $objAccesoDato = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDato->prepararConsulta("UPDATE mesas 
+        SET estado = 
+            CASE WHEN (SELECT estado FROM mesas WHERE idMesa = :idMesaDos) = 'cliente comiendo' 
+            THEN :estado 
+        END
+        WHERE idMesa = :idMesa");
+        $consulta->bindValue(':estado', $estado, PDO::PARAM_STR);
+        $consulta->bindValue(':idMesa', $idMesa, PDO::PARAM_INT);
+        $consulta->bindValue(':idMesaDos', $idMesa, PDO::PARAM_INT);
+        $consulta->execute();
+
+        return $consulta->rowCount();
+    }
 
 
         /*VERIFICAR POR QUE NO ANDA ESTO

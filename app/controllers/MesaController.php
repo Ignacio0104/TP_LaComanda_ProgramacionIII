@@ -64,43 +64,21 @@ class MesaController extends Mesa
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
-  /*  
-    public function ModificarUno($request, $response, $args)
+
+    public function CerrarMesa($request, $response, $args)
     {
-        //$parametros = $request->getParsedBody();
-        $datos = json_decode(file_get_contents("php://input"), true);
-        $usuarioAModificar = new Empleado();
-        $usuarioAModificar->id=$datos["id"]; 
-        $usuarioAModificar->usuario=$datos["usuario"]; 
-        $usuarioAModificar->clave=$datos["clave"]; 
-        if(array_key_exists("fechaBaja",$datos))
-        {
-          $usuarioAModificar->fechaBaja=$datos["fechaBaja"]; 
-        }
-        if(array_key_exists("perfil_usuario",$datos))
-        {
-          $usuarioAModificar->perfil_usuario=$datos["perfil_usuario"]; 
-        }
-        Empleado::modificarUsuario($usuarioAModificar);
-        $payload = json_encode(array("mensaje" => "Usuario modificado con exito"));
+      $parametros = $request->getParsedBody();
+      $idMesa = $parametros['idMesa'];
+      $estado = $parametros['estado'];
+
+      if(Mesa::modificarEstadoConIdMesa($idMesa,$estado)>0){
+        $payload = json_encode(array("Exito!  " => "Estado de la mesa modificado"));
+      }else{
+        $payload = json_encode(array("Error! " => "Favor verifique la información ingresada"));
+      }
 
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
-
-    public function BorrarUno($request, $response, $args)
-    {
-        //$parametros = $request->getParsedBody();
-
-        $datos = json_decode(file_get_contents("php://input"), true);
-        $usuarioId = $datos['id'];
-        Empleado::borrarUsuario($usuarioId);
-
-        $payload = json_encode(array("mensaje" => "Usuario borrado con exito"));
-
-        $response->getBody()->write($payload);
-        return $response
-          ->withHeader('Content-Type', 'application/json');
-    }*/
 }

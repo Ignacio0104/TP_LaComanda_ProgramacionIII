@@ -60,6 +60,7 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
     $group->get('/traerComandasListas', \ProductoPedidoController::class . ':TraerPendientesPersonales');
     $group->get('/traerPendienteMozo', \ComandaController::class . ':TraerTodasTerminadas')->add(new CheckMozoMiddleware());
     $group->delete('/cerrarComanda', \ComandaController::class . ':BorrarUno')->add(new CheckMozoMiddleware());
+    $group->post('/cerrarCuenta', \MesaController::class . ':CerrarMesa')->add(new CheckMozoMiddleware());
   })->add(new CheckTokenMiddleware());
 
 //Genero el token
