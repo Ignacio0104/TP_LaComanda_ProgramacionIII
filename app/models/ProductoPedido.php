@@ -54,7 +54,8 @@ class ProductoPedido
     public static function obtenerPendientePorEmpleado($legajoEmpleado)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pedidos WHERE legajoEmpleado = :legajoEmpleado");
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pedidos 
+        WHERE legajoEmpleado = :legajoEmpleado AND estado = 'En preparacion'");
         $consulta->bindValue(':legajoEmpleado', $legajoEmpleado, PDO::PARAM_STR);
         $consulta->execute();
 

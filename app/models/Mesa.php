@@ -93,14 +93,19 @@ class Mesa
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDato->prepararConsulta("UPDATE mesas 
-        SET estado = 
-            CASE WHEN (SELECT estado FROM mesas WHERE idMesa = :idMesaDos) = 'cliente pagando' 
+        SET estado = CASE WHEN (SELECT estado FROM mesas WHERE idMesa = :idMesaDos) = 'cliente pagando' 
             THEN 'cerrado' ELSE (SELECT estado FROM mesas WHERE idMesa = :idMesaTres)
+        END,
+        legajoMozo = 
+            CASE WHEN (SELECT estado FROM mesas WHERE idMesa = :idMesaCuatro) = 'cliente pagando' 
+            THEN 0 ELSE (SELECT legajoMozo FROM mesas WHERE idMesa = :idMesaCinco)
         END
         WHERE idMesa = :idMesa");
         $consulta->bindValue(':idMesa', $idMesa, PDO::PARAM_INT);
         $consulta->bindValue(':idMesaDos', $idMesa, PDO::PARAM_INT);
         $consulta->bindValue(':idMesaTres', $idMesa, PDO::PARAM_INT);
+        $consulta->bindValue(':idMesaCuatro', $idMesa, PDO::PARAM_INT);
+        $consulta->bindValue(':idMesaCinco', $idMesa, PDO::PARAM_INT);
         $consulta->execute();
         
         return $consulta->rowCount();
