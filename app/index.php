@@ -61,7 +61,7 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
     $group->get('/traerPendienteMozo', \ComandaController::class . ':TraerTodasTerminadas')->add(new CheckMozoMiddleware());
     $group->delete('/cerrarComanda', \ComandaController::class . ':BorrarUno')->add(new CheckMozoMiddleware());
     $group->post('/cerrarCuenta', \MesaController::class . ':CerrarCuenta')->add(new CheckMozoMiddleware());
-    $group->post('/cerrarMesa', \MesaController::class . ':CerrarMesa')->add(new CheckMozoMiddleware());
+    $group->post('/cerrarMesa', \MesaController::class . ':CerrarMesa')->add(new CheckSocioMiddleware());
   })->add(new CheckTokenMiddleware());
 
 //Genero el token

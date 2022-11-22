@@ -75,7 +75,7 @@ class MesaController extends Mesa
       $idMesa = $parametros['idMesa'];
 
       if(Mesa::cerrarMesaSQL($idMesa)>0){
-        $payload = json_encode(array("Exito!  " => "EsStado de la mesa modificado"));
+        $payload = json_encode(array("Exito!  " => "Estado de la mesa modificado"));
       }else{
         $payload = json_encode(array("Error! " => "Favor verifique la información ingresada"));
       }
