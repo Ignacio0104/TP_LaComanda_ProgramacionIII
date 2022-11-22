@@ -69,9 +69,8 @@ class MesaController extends Mesa
     {
       $parametros = $request->getParsedBody();
       $idMesa = $parametros['idMesa'];
-      $estado = $parametros['estado'];
 
-      if(Mesa::modificarEstadoConIdMesa($idMesa,$estado)>0){
+      if(Mesa::modificarEstadoConIdMesa($idMesa)>0){
         $payload = json_encode(array("Exito!  " => "Estado de la mesa modificado"));
       }else{
         $payload = json_encode(array("Error! " => "Favor verifique la información ingresada"));
