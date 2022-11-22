@@ -72,13 +72,24 @@ class Comanda
     public static function cerrarComanda($idComanda)
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDato->prepararConsulta("UPDATE pedido SET horaBaja = :horaBaja 
+        $consulta = $objAccesoDato->prepararConsulta("UPDATE pedidos SET estado = 'Entregado' 
         WHERE idComanda = :idComanda");
-        $hora = new DateTime(date("h:i:sa"));
         $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_INT);
-        $consulta->bindValue(':horaBaja', date_format($hora, 'H:i:sa'));
         $consulta->execute();
     }
+
+    public static function cambiarEstados($idComanda)
+    {
+        $objAccesoDato = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDato->prepararConsulta("UPDATE comandas INNER JOIN mesas 
+        ON comandas.idMesa = mesas.idMesa 
+        SET comandas.estado = 'Entregado',
+        mesas.estado = 'Cliente comiendo' 
+        WHERE comandas.idMesa = (SELECT idMesa FROM comandas where idComanda=:idComanda");
+        $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_INT);
+        $consulta->execute();
+    }
+
 
     
     function crearCodigoComanda() { 
@@ -100,7 +111,7 @@ class Comanda
     public static function verificarMesa($idMesa)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("SELECT COUNT(1) FROM mesas WHERE mesas.idMesa = :idMesa AND mesas.estado = 'cliente esperando mozo'");
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT COUNT(*) FROM mesas WHERE mesas.idMesa = :idMesa AND mesas.estado = 'cliente esperando mozo'");
         $consulta->bindValue(':idMesa', $idMesa, PDO::PARAM_STR);
         $consulta->execute();
 

@@ -91,21 +91,21 @@ class ComandaController
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
-
+*/
     public function BorrarUno($request, $response, $args)
     {
-        //$parametros = $request->getParsedBody();
-
+    
         $datos = json_decode(file_get_contents("php://input"), true);
-        $usuarioId = $datos['id'];
-        Empleado::borrarUsuario($usuarioId);
+        $idComanda = $datos['idComanda'];
+        Comanda::cerrarComanda($idComanda);
+        Comanda::cambiarEstados($idComanda);
 
-        $payload = json_encode(array("mensaje" => "Usuario borrado con exito"));
+        $payload = json_encode(array("Exito!" => "Comanda cerrada"));
 
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
-    }*/
+    }
 
     private function moverImagen($idMesa)
     {
