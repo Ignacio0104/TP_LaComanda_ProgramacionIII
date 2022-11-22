@@ -102,10 +102,12 @@ class ProductoPedido
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDato->prepararConsulta("UPDATE comandas 
-        SET estado = CASE WHEN (SELECT COUNT(*) FROM PEDIDOS WHERE idComanda = :idComanda
-        AND estado = 'En preparacion')=0 THEN 'Pedido terminado' ELSE 'En preparacion' END 
+        SET estado = CASE WHEN (SELECT COUNT(*) FROM PEDIDOS 
+        WHERE idComanda = :idComandaDos AND estado = 'En preparacion')=0 
+        THEN 'Pedido terminado' ELSE 'En preparacion' END 
         WHERE idComanda = :idComanda");
-        $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_STR);
+        $consulta->bindValue(":idComanda", $idComanda, PDO::PARAM_STR);
+        $consulta->bindValue(":idComandaDos", $idComanda, PDO::PARAM_STR);
         $consulta->execute();
     }
 
