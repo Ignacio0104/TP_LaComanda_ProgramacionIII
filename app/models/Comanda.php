@@ -61,17 +61,15 @@ class Comanda
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDatos->prepararConsulta('SELECT 
-        DISTINCT comandas.idComanda, comandas.estado, horaAlta, comandas.idMesa, 
+        DISTINCT comandas.idComanda, comandas.estado, comandas.horaAlta, comandas.idMesa, 
         (SELECT MAX(minutosDemora) FROM pedidos 
         WHERE pedidos.idComanda=comandas.idComanda AND estado = "En preparacion") as "Demora" 
         FROM comandas INNER JOIN pedidos ON comandas.idComanda = pedidos.idComanda 
         WHERE comandas.estado = "En preparacion"');
         $consulta->execute();
 
-        return $consulta->fetchColumn();
+        return $consulta->fetchAll(PDO::FETCH_CLASS, 'Comanda');
     }
-
-
 
     public static function modificarEstadoComanda($comanda)
     {

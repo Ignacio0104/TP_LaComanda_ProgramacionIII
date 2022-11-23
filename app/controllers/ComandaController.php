@@ -71,7 +71,7 @@ class ComandaController
     public function TraerComandasTiempo($request, $response, $args)
     {
         $lista = Comanda::obtenerComandasTiempo();
-        $payload = json_encode(array("Pedidos listos para servir" => $lista));
+        $payload = json_encode(array("Pedidos pendientes" => $lista));
 
         $response->getBody()->write($payload);
         return $response

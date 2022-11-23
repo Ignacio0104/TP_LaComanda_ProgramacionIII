@@ -172,12 +172,12 @@
 					"formdata": [
 						{
 							"key": "idMesa",
-							"value": "50000",
+							"value": "90000",
 							"type": "text"
 						},
 						{
 							"key": "legajo",
-							"value": "1009",
+							"value": "1006",
 							"type": "text"
 						}
 					]
@@ -205,7 +205,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njg3MzcyMzksImV4cCI6MTY2ODc5NzIzOSwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.V6BPZlkTj46yU9PdqHrgnv98SZjSJc7tpQ-nMjGCsko",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNDk2MzAsImV4cCI6MTY2OTIwOTYzMCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.9cQoSQ7T0ncaak6LJwb9IrIsMHwS_r3SNQj_p-eWnU0",
 							"type": "string"
 						}
 					]
@@ -217,13 +217,13 @@
 					"formdata": [
 						{
 							"key": "mesa",
-							"value": "40000",
+							"value": "90000",
 							"type": "text"
 						},
 						{
 							"key": "URLImagen",
 							"type": "file",
-							"src": "/C:/Users/Nacho/Pictures/chicago-bulls-logo-chicago-bulls-symbol-meaning-history-and-evolution.jpg"
+							"src": "/C:/Users/Nacho/Pictures/1614352808020.jpg"
 						}
 					]
 				},
@@ -280,7 +280,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njg3MzUxNjIsImV4cCI6MTY2ODc5NTE2MiwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.c1nxWfMI3xSMVPSNh3o2c8ZQqIM9bpsvAL4A9hACNgA",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNTcyMDgsImV4cCI6MTY2OTIxNzIwOCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.8BfteJUxsestvl18JGrOOLQwQSIm-ihx6MgxzrCFosQ",
 							"type": "string"
 						}
 					]
@@ -292,17 +292,17 @@
 					"formdata": [
 						{
 							"key": "idComanda",
-							"value": "2hys0",
+							"value": "6rq5v",
 							"type": "text"
 						},
 						{
 							"key": "idPlato",
-							"value": "12",
+							"value": "4",
 							"type": "text"
 						},
 						{
 							"key": "minutos",
-							"value": "5",
+							"value": "30",
 							"type": "text"
 						}
 					]
@@ -364,7 +364,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxMzAxMjYsImV4cCI6MTY2OTE5MDEyNiwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDEwLCJ1c3VhcmlvIjoiQnJhbmRvbiIsImNsYXZlIjoiJDJ5JDEwJGRMNjZucTIwVTE0TlN3TkkubDY4ZU9pRy5Jd1l2Ymw2REhaOUNud0FqamlLYVdLaEJGODhDIiwicGVyZmlsX3VzdWFyaW8iOiJjb2NpbmVybyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.AuOK_7jOCwOzH-ivnCufAQ4mchYwpzRlj7h3l2p9HVc",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNTczODIsImV4cCI6MTY2OTIxNzM4MiwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDEwLCJ1c3VhcmlvIjoiQnJhbmRvbiIsImNsYXZlIjoiJDJ5JDEwJGRMNjZucTIwVTE0TlN3TkkubDY4ZU9pRy5Jd1l2Ymw2REhaOUNud0FqamlLYVdLaEJGODhDIiwicGVyZmlsX3VzdWFyaW8iOiJjb2NpbmVybyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.M1Ig5NiqdxAF06TxqGEEQc1CrpDtupZwZgU0Kv8swu8",
 							"type": "string"
 						}
 					]
@@ -392,7 +392,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:666/esperaMesa?idMesa=40000&idComanda=2hys0",
+					"raw": "http://localhost:666/esperaMesa?idMesa=90000&idComanda=6rq5v",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -404,11 +404,11 @@
 					"query": [
 						{
 							"key": "idMesa",
-							"value": "40000"
+							"value": "90000"
 						},
 						{
 							"key": "idComanda",
-							"value": "2hys0"
+							"value": "6rq5v"
 						}
 					]
 				}
@@ -453,7 +453,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNDg3NzcsImV4cCI6MTY2OTIwODc3NywiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDEwLCJ1c3VhcmlvIjoiQnJhbmRvbiIsImNsYXZlIjoiJDJ5JDEwJGRMNjZucTIwVTE0TlN3TkkubDY4ZU9pRy5Jd1l2Ymw2REhaOUNud0FqamlLYVdLaEJGODhDIiwicGVyZmlsX3VzdWFyaW8iOiJjb2NpbmVybyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.SYSuT6eR8mSGkAeXzdW16GLAvOYP7yfI_xBQ4HH2aAY",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNTc1NTMsImV4cCI6MTY2OTIxNzU1MywiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA4LCJ1c3VhcmlvIjoiSm9zZSIsImNsYXZlIjoiJDJ5JDEwJHpYTERJTkJyVFJJMmNyQ0RXMFNyRXVXNmdkVmFoYzJJRWF6M0NFM05PQWpUT1hNWjlxRjFlIiwicGVyZmlsX3VzdWFyaW8iOiJjZXJ2ZWNlcm8ifSwiYXBwIjoiVGVzdCBKV1QifQ.qlp8O8qPZmCReqLro6lwpVkYyUJPz9FzU1v-krFsHMY",
 							"type": "string"
 						}
 					]
@@ -465,12 +465,12 @@
 					"formdata": [
 						{
 							"key": "idPendiente",
-							"value": "112",
+							"value": "115",
 							"type": "text"
 						},
 						{
 							"key": "idComanda",
-							"value": "6fwat",
+							"value": "6rq5v",
 							"type": "text"
 						}
 					]
@@ -515,6 +515,150 @@
 					"path": [
 						"usuarios",
 						"traerPendienteMozo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cerrar comanda",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNTI3ODksImV4cCI6MTY2OTIxMjc4OSwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.uoPCYWKf-hmN3pxcNY4BXjTJ2v-uugcZqfW66B6FQuw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idComanda\": \"6rq5v\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:666/usuarios/cerrarComanda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"usuarios",
+						"cerrarComanda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cerrar cuenta",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNTUwOTYsImV4cCI6MTY2OTIxNTA5NiwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.BtTfUjUbXm_Rb4dQsJyynmbn_5fQpruPN7BlFIP1v_k",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idMesa",
+							"value": "90000",
+							"type": "text"
+						},
+						{
+							"key": "estado",
+							"value": "Cliente pagando",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/usuarios/cerrarCuenta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"usuarios",
+						"cerrarCuenta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cerrar mesa",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNTg1ODcsImV4cCI6MTY2OTIxODU4NywiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDAwLCJ1c3VhcmlvIjoiSWduYWNpbyIsImNsYXZlIjoiJDJ5JDEwJFV1WGJJb24ucW5BR3EzMmRkLlR5T2UxN0pjcXIwR05relhKOHpqV2dkSzluZU5DYWRLZEhlIiwicGVyZmlsX3VzdWFyaW8iOiJzb2NpbyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.MMNUnXjbPxVSQM_tjTQcZVKzK_uXb3wzWtokEafYVxA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idMesa",
+							"value": "90000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/usuarios/cerrarMesa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"usuarios",
+						"cerrarMesa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer pendientes socio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/usuarios/traerPendientesSocio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"usuarios",
+						"traerPendientesSocio"
 					]
 				}
 			},
