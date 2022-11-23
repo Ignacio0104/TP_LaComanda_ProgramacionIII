@@ -13,11 +13,10 @@ class CheckTokenMiddleware{
        $response= new Response();
        try {
         json_encode(array('datos' => AutentificadorJWT::VerificarToken($token)));
-        echo "**Token validado**";
-        $response= $handler->handle($request);
-       
+        echo " **Token validado** ";
+        $response= $handler->handle($request);   
       } catch (Exception $e) {
-        $response->getBody()->write(json_encode(array('error - Token invalido' => $e->getMessage())));
+        $response->getBody()->write(json_encode(array('mensaje' => $e->getMessage())));
         $response = $response->withStatus(401);
       }
 

@@ -96,11 +96,13 @@ class Empleado
     public static function borrarEmpleado($legajo)
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDato->prepararConsulta("UPDATE usuarios SET fechaBaja = :fechaBaja WHERE legajo = :legajo");
+        $consulta = $objAccesoDato->prepararConsulta("UPDATE trabajadores SET fechaBaja = :fechaBaja WHERE legajo = :legajo");
         $fecha = new DateTime(date("d-m-Y"));
         $consulta->bindValue(':legajo', $legajo, PDO::PARAM_INT);
         $consulta->bindValue(':fechaBaja', date_format($fecha, 'Y-m-d H:i:s'));
         $consulta->execute();
+
+        return $consulta->rowCount();
     }
 
 }

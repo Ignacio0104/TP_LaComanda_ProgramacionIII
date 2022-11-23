@@ -10,19 +10,20 @@ class AutentificadorController extends AutentificadorJWT
         $usuarioBaseDeDatos=Empleado::obtenerEmpleadoPorLegajo($parametros["legajo"]);
         if($usuarioBaseDeDatos !=null)
         {
-            if(password_verify($parametros["clave"],$usuarioBaseDeDatos->clave))
+            if(password_verify($parametros["clave"],$usuarioBaseDeDatos->clave) 
+            && ($usuarioBaseDeDatos->fechaBaja <1))
             {
                 $datos = array('legajo'=> $usuarioBaseDeDatos->legajo,'usuario' => $usuarioBaseDeDatos->nombre, 'clave' => $usuarioBaseDeDatos->clave
                 ,"perfil_usuario"=> $usuarioBaseDeDatos->perfilEmpleado);
                 $token = AutentificadorJWT::CrearToken($datos);
-                $payload = json_encode(array('Usuario logueado con éxito! Rol: '.$usuarioBaseDeDatos->perfilEmpleado => $token));
+                $payload = json_encode(array('mensaje' => $token));
                 $response->getBody()->write($payload);
 
             }else{
-                $response->getBody()->write("Error en los datos ingresados");
+                $response->getBody()->write(json_encode(array("mensaje" => "Error, verifique la información")));
             }
         }else{
-            $response->getBody()->write("El usuario no existe");
+            $response->getBody()->write(json_encode(array("mensaje" => "Error, verifique la información")));
         }
 
         return $response
@@ -31,31 +32,6 @@ class AutentificadorController extends AutentificadorJWT
 }
 
 
-
-    /*public function VerificarClave ($request, $response,$args)
-    {
-        //$datos = json_decode(file_get_contents("php://input"), true);
-        //$datos= $request->getParsedBody(); 
-        $parametros = $request->getParsedBody();
-        $usuarioBaseDeDatos=Usuario::obtenerUsuario($parametros["usuario"]);
-
-       if(password_verify($parametros["clave"],$usuarioBaseDeDatos->clave))
-        {
-            $payload = json_encode(array("mensaje" => "Usuario logueado"));
-        }else{
-            $payload = json_encode(array("mensaje" => "Error!"));
-        }
-        
-       if(password_verify($parametros["clave"],$usuarioBaseDeDatos->clave))
-        {
-            $payload = "Retorno desde el controller $usuarioBaseDeDatos" ;
-        }else{
-            $payload = "Retorno desde el controller Error";
-        }
-        $response->getBody()->write($payload);
-        return $response
-          ->withHeader('Content-Type', 'application/json');
-    }*/
 ?>
 
 

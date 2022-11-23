@@ -83,19 +83,19 @@ class EmpleadoController extends Empleado
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
-
+*/
     public function BorrarUno($request, $response, $args)
     {
-        //$parametros = $request->getParsedBody();
 
         $datos = json_decode(file_get_contents("php://input"), true);
         $usuarioId = $datos['id'];
-        Empleado::borrarUsuario($usuarioId);
-
-        $payload = json_encode(array("mensaje" => "Usuario borrado con exito"));
-
+        if(Empleado::borrarEmpleado($usuarioId)==1){
+          $payload = json_encode(array("mensaje" => "Usuario borrado con exito"));
+        }else{
+          $payload = json_encode(array("mensaje" => "Error, verifique la información"));
+        }
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
-    }*/
+    }
 }
