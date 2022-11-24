@@ -111,13 +111,15 @@ class ProductoPedidoController
         $parametros = $request->getParsedBody();
         $data = AutentificadorJWT::ObtenerData($token);
         
-        if(ProductoPedido::AsignarPedido($data->perfil_usuario,$data->legajo,
+        $lista = ProductoPedido::ValidarPedidoPendiente($parametros["idPedido"],$data->perfil_usuario,$parametros["idProducto"]);
+        $payload = json_encode(array("Lista" => $lista));
+       /* if(ProductoPedido::AsignarPedido($data->perfil_usuario,$data->legajo,
         $parametros["idPedido"],$parametros["idProducto"],$parametros["minutosDemora"])==1)
         {
           $payload = json_encode(array("mensaje" => "Pedido asignado con exito!"));
         }else{
           $payload = json_encode(array("mensaje" => "Error"));
-        }
+        }*/
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
