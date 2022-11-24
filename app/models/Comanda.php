@@ -100,9 +100,11 @@ class Comanda
         INNER JOIN mesas ON comandas.idMesa = mesas.idMesa 
         SET comandas.estado = 'Entregado', mesas.estado = 'Cliente comiendo' 
         WHERE comandas.idMesa = (SELECT idMesa FROM comandas where idComanda=:idComanda
-        AND estado = 'Pedido terminado')");
+        AND estado = 'Entregado')");
         $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_STR);
         $consulta->execute();
+
+        return $consulta->rowCount();
     }
 
 

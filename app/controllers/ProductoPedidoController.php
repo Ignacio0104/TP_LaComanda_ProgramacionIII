@@ -9,8 +9,8 @@ class ProductoPedidoController
     public function CargarUno($request, $response, $args)
     {
         $parametros = $request->getParsedBody();
-
         try{
+          
           $pendiente = new ProductoPedido();
           
           $comandaAuxiliar = Comanda::obtenerComandaPorIdentificador($parametros["idComanda"]);
@@ -25,31 +25,19 @@ class ProductoPedidoController
             $pendiente->minutosDemora= 0;
             $pendiente->estado = "Pendiente";
             $pendiente->crearPendiente();
-            $payload=json_encode(array("Exito!" => "Se creó el pendiente correctamente"));
+            $payload=json_encode(array("mensaje" => "Se creó el pendiente correctamente"));
           }else{
-            $payload=json_encode(array("Error!" => "Revisar comanda y producto"));
+            $payload=json_encode(array("mensaje" => "Revisar comanda y producto"));
           }
         }catch(\Throwable $ex)
         {
-            $payload=json_encode(array("Error!" => $ex->getMessage()));
+            $payload=json_encode(array("mensaje" => "$ex->getMessage()"));
         }
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
-/*
-    public function TraerUno($request, $response, $args)
-    {
-        // Buscamos usuario por nombre
-        $usr = $args['usuario'];
-        $usuario = Empleado::obtenerUsuario($usr);
-        $payload = json_encode($usuario);
 
-        $response->getBody()->write($payload);
-        return $response
-          ->withHeader('Content-Type', 'application/json');
-    }
-*/
     public function TraerTodos($request, $response, $args)
     {
         $lista = ProductoPedido::obtenerTodos();
@@ -125,8 +113,6 @@ class ProductoPedidoController
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
-
-
 
     public function CompletarPedido($request, $response, $args)
     {
