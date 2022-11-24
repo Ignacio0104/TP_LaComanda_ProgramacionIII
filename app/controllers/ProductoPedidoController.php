@@ -20,10 +20,10 @@ class ProductoPedidoController
           {
             $pendiente->idComanda = $parametros["idComanda"];
             $pendiente->idMesa = $comandaAuxiliar->idMesa;
-            $pendiente->legajoEmpleado = ProductoPedido::elegirTrabajor($parametros["idPlato"])->legajo;
+            $pendiente->legajoEmpleado = 0;
             $pendiente->idPlato= $parametros["idPlato"];
-            $pendiente->estado = "En preparacion";
-            $pendiente->minutosDemora= $parametros["minutos"];
+            $pendiente->minutosDemora= 0;
+            $pendiente->estado = "Pendiente";
             $pendiente->crearPendiente();
             $payload=json_encode(array("Exito!" => "Se creó el pendiente correctamente"));
           }else{
@@ -86,6 +86,43 @@ class ProductoPedidoController
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
+
+    public function TraerPendientesSector($request, $response, $args)
+    {
+        $header = $request->getHeaderLine(("Authorization"));
+        $token = trim(explode("Bearer",$header)[1]);
+        $data = AutentificadorJWT::ObtenerData($token);
+        $lista = ProductoPedido::obtenerPendientePorSector($data->perfil_usuario);
+        if(!$lista)
+        {
+          $payload = json_encode(array("listaDePedidos" => "Este sector no tiene pendientes"));
+        }else{
+          $payload = json_encode(array("listaDePedidos" => $lista));
+        }
+        $response->getBody()->write($payload);
+        return $response
+          ->withHeader('Content-Type', 'application/json');
+    }
+
+    public function AsignarPendientesEmpleado($request, $response, $args)
+    {
+        $header = $request->getHeaderLine(("Authorization"));
+        $token = trim(explode("Bearer",$header)[1]);
+        $parametros = $request->getParsedBody();
+        $data = AutentificadorJWT::ObtenerData($token);
+        
+        if(ProductoPedido::AsignarPedido($data->perfil_usuario,$data->legajo,
+        $parametros["idPedido"],$parametros["idProducto"],$parametros["minutosDemora"])==1)
+        {
+          $payload = json_encode(array("mensaje" => "Pedido asignado con exito!"));
+        }else{
+          $payload = json_encode(array("mensaje" => "Error"));
+        }
+        $response->getBody()->write($payload);
+        return $response
+          ->withHeader('Content-Type', 'application/json');
+    }
+
 
 
     public function CompletarPedido($request, $response, $args)

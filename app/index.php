@@ -50,6 +50,8 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
     $group->get('/traerPedidos', \ComandaController::class . ':TraerTodos');
     $group->post('/altaPendiente', \ProductoPedidoController::class . ':CargarUno')->add(new CheckMozoMiddleware());
     $group->get('/traerPendientes', \ProductoPedidoController::class . ':TraerPendientesPersonales');
+    $group->get('/traerPendientesSector', \ProductoPedidoController::class . ':TraerPendientesSector');
+    $group->post('/asignarPendientes', \ProductoPedidoController::class . ':AsignarPendientesEmpleado');
     $group->get('/traerTodosPendientes', \ProductoPedidoController::class . ':TraerTodosPendientes');
     $group->get('/traerPendientesSocio', \ComandaController::class . ':TraerComandasTiempo')->add(new CheckSocioMiddleware());
     $group->post('/completarPedido', \ProductoPedidoController::class . ':CompletarPedido');
