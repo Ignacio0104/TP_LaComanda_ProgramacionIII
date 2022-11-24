@@ -61,10 +61,14 @@ class MesaController extends Mesa
     {
       $parametros = $request->getParsedBody();
       $idMesa = $parametros['idMesa'];
-
-      if(Mesa::modificarEstadoConIdMesa($idMesa)>0){
-    
-        $payload = json_encode(array("mensaje" => "Cuenta cerrada con exito"));     
+      $idComanda = $parametros['idComanda'];
+      $lista=Mesa::traerCosto($idComanda);
+      if(/*Mesa::modificarEstadoConIdMesa($idMesa)>0 &&*/ count($lista)>=1){
+        $mensaje = " Cuenta: ";
+        for ($i=0; $i < count($lista); $i++) { 
+          $mensaje.=" | ".$lista[$i]["nombre"]." $".$lista[$i]["precio"];
+        }
+          $payload = json_encode(array("mensaje" => "Cuenta cerrada con exito".$mensaje));     
       }else{
         $payload = json_encode(array("Error! " => "Favor verifique la información ingresada"));
       }

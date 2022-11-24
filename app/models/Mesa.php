@@ -89,6 +89,18 @@ class Mesa
         return $consulta->rowCount();
     }
 
+    public static function traerCosto($idComanda)
+    {
+        $objAccesoDato = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDato->prepararConsulta("SELECT menu.nombre, menu.precio 
+        FROM menu INNER JOIN pedidos ON menu.idProducto = pedidos.idPlato 
+        WHERE pedidos.idComanda=:idComanda");
+        $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_INT);
+        $consulta->execute();
+
+        return $consulta->fetchAll();
+    }
+
     public static function cargarFactura($idComanda)
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
