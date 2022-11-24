@@ -74,38 +74,15 @@ class ProductoPedido
         return $consulta->fetchAll(PDO::FETCH_CLASS, 'ProductoPedido');
     }
 
-    public static function AsignarPedido($perfilEmpleado, $legajoEmpleado, $idPedido, $idProducto,$minutosDemora)
+    public static function AsignarPedido($legajoEmpleado, $idPedido,$minutosDemora)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        echo "Perfil".$perfilEmpleado."\n";
-        echo "legajoEmpleado".$legajoEmpleado."\n";
-        echo "idPedido".$idPedido."\n";
-        echo "idProducto".$idProducto."\n";
-        echo "minutosDemora".$minutosDemora."\n";
         $consulta = $objAccesoDatos->prepararConsulta("UPDATE pedidos 
-        SET estado = CASE WHEN estado ='Pendiente' AND 
-        (SELECT tipo FROM menu INNER JOIN pedidos ON pedidos.idPlato = menu.idProducto 
-        WHERE menu.idProducto = 8 LIMIT 1)='cocinero' THEN 'En preparacion' 
-        ELSE (SELECT estado FROM pedidos WHERE pedidos.idPendiente=121)
-        END,
-        legajoEmpleado = CASE WHEN estado='Pendiente' AND 
-        (SELECT tipo FROM menu INNER JOIN pedidos ON pedidos.idPlato = menu.idProducto 
-        WHERE menu.idProducto = 8 LIMIT 1)='cocinero' THEN 1010 
-        ELSE (SELECT legajoEmpleado FROM pedidos WHERE pedidos.idPendiente=121)
-        END,
-        minutosDemora = CASE WHEN estado='Pendiente' AND 
-        (SELECT tipo FROM menu INNER JOIN pedidos ON pedidos.idPlato = menu.idProducto 
-        WHERE menu.idProducto = 8 LIMIT 1)='cocinero'  THEN 25
-        ELSE (SELECT minutosDemora FROM pedidos WHERE pedidos.idPendiente=121)
-        END
+        SET estado = 'En preparacion',
+        legajoEmpleado = :legajoEmpleado,
+        minutosDemora = :minutosDemora
         WHERE idPendiente = :idPedido");
         $consulta->bindValue(':legajoEmpleado', $legajoEmpleado, PDO::PARAM_INT);
-        $consulta->bindValue(':perfilEmpleado', $perfilEmpleado, PDO::PARAM_STR);
-        $consulta->bindValue(':perfilEmpleadoDos', $perfilEmpleado, PDO::PARAM_STR);
-        $consulta->bindValue(':perfilEmpleadoTres', $perfilEmpleado, PDO::PARAM_STR);
-        $consulta->bindValue(':idProducto', $idProducto, PDO::PARAM_INT);
-        $consulta->bindValue(':idProductoDos', $idProducto, PDO::PARAM_INT);
-        $consulta->bindValue(':idProductoTres', $idProducto, PDO::PARAM_INT);
         $consulta->bindValue(':idPedido', $idPedido, PDO::PARAM_INT);
         $consulta->bindValue(':minutosDemora', $minutosDemora, PDO::PARAM_INT);
         $consulta->execute();
@@ -115,8 +92,6 @@ class ProductoPedido
 
     public static function ValidarPedidoPendiente($idPedido, $perfilEmpleado,$idProducto)
     {
-        echo "Idpedido".$idPedido;
-        echo "perfilEmpleado".$perfilEmpleado;
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM pedidos 
         WHERE idPendiente = :idPedido AND estado = 'Pendiente' AND legajoEmpleado = 0 
