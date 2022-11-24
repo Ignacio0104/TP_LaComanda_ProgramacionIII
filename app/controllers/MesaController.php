@@ -63,7 +63,8 @@ class MesaController extends Mesa
       $idMesa = $parametros['idMesa'];
 
       if(Mesa::modificarEstadoConIdMesa($idMesa)>0){
-        $payload = json_encode(array("Exito!  " => "Estado de la mesa modificado"));
+    
+        $payload = json_encode(array("mensaje" => "Cuenta cerrada con exito"));     
       }else{
         $payload = json_encode(array("Error! " => "Favor verifique la información ingresada"));
       }
@@ -77,9 +78,15 @@ class MesaController extends Mesa
     {
       $parametros = $request->getParsedBody();
       $idMesa = $parametros['idMesa'];
+      $idComanda = $parametros['idComanda'];
 
       if(Mesa::cerrarMesaSQL($idMesa)>0){
-        $payload = json_encode(array("Exito!  " => "Estado de la mesa modificado"));
+        if(Mesa::cargarFactura($idComanda)==1)
+        {
+          $payload = json_encode(array("mensaje" => "Mesa cerrada y factura cargada"));
+        }else{
+          $payload = json_encode(array("mensaje" => "Mesa cerrada pero no se pudo cargar la factura"));
+        }
       }else{
         $payload = json_encode(array("Error! " => "Favor verifique la información ingresada"));
       }

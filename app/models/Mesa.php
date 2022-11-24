@@ -89,6 +89,23 @@ class Mesa
         return $consulta->rowCount();
     }
 
+    public static function cargarFactura($idComanda)
+    {
+        $objAccesoDato = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDato->prepararConsulta("INSERT INTO facturas(idComanda, idMesa,fecha,monto)
+        VALUES (:idComanda, (SELECT idMesa FROM comandas where idComanda=:idComandaDos),:fecha, 
+        (SELECT SUM(precio) FROM menu INNER JOIN pedidos ON menu.idProducto = pedidos.idPlato 
+        WHERE pedidos.idComanda=:idComandaTres))");
+        $fecha = new DateTime(date("d-m-Y"));
+        $consulta->bindValue(':fecha', date_format($fecha, 'Y-m-d'));
+        $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_STR);
+        $consulta->bindValue(':idComandaDos', $idComanda, PDO::PARAM_STR);
+        $consulta->bindValue(':idComandaTres', $idComanda, PDO::PARAM_STR);
+        $consulta->execute();
+        return $consulta->rowCount();
+    }
+
+
     public static function cerrarMesaSQL($idMesa)
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
@@ -111,10 +128,4 @@ class Mesa
         return $consulta->rowCount();
     }
 
-
-        /*VERIFICAR POR QUE NO ANDA ESTO
-        $consulta = $objAccesoDatos->prepararConsulta ("UPDATE mesas 
-        SET legajoMozo = IF((SELECT perfilEmpleado FROM trabajadores WHERE legajo = :legajoMozo) ='mozo', :legajoMozo, 0), 
-        estado = IF(legajoMozo = 0,'cerrado','cliente esperado pedido') 
-        WHERE idMesa = :idMesa");*/
 }
