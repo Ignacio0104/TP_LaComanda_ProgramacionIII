@@ -85,10 +85,12 @@ class Comanda
     public static function cerrarComanda($idComanda)
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDato->prepararConsulta("UPDATE pedidos SET estado = 'Entregado' 
-        WHERE idComanda = :idComanda");
+        $consulta = $objAccesoDato->prepararConsulta("UPDATE comandas SET estado = 'Entregado' 
+        WHERE idComanda = :idComanda AND estado = 'Pedido terminado' ");
         $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_INT);
         $consulta->execute();
+
+        return $consulta->rowCount();
     }
 
     public static function cambiarEstados($idComanda)

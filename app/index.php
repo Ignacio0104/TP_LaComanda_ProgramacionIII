@@ -11,19 +11,14 @@ use Slim\Factory\AppFactory;
 use Slim\Routing\RouteCollectorProxy;
 use Slim\Routing\RouteContext;
 
-//require_once  './middlewares/MiddlewareLogin.php';
 require_once  './middlewares/CheckMozoMiddleware.php';
 require_once  './middlewares/CheckTokenMiddleware.php';
 require_once  './middlewares/CheckSocioMiddleware.php';
-//require_once './middlewares/CheckPerfilMiddleware.php';
 
 require __DIR__ . '/../vendor/autoload.php';
 
 require_once './db/AccesoDatos.php';
-// require_once './middlewares/Logger.php';
 
-//require_once './controllers/UsuarioController.php';
-//require_once './controllers/LoginController.php';
 require_once './controllers/AutenticadorController.php';
 require_once './controllers/EmpleadoController.php';
 require_once './controllers/ProductoController.php';
@@ -69,9 +64,6 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
 //Genero el token
 $app->post('/login', \AutentificadorController::class . ':CrearTokenLogin');
 $app->get('/esperaMesa', \MesaController::class . ':TraerEsperaMesa');
-
-
-
 
 
 $app->get('[/]', function (Request $request, Response $response) {    
