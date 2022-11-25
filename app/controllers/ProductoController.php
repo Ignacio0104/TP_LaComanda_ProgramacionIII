@@ -74,7 +74,7 @@ class ProductoController extends Producto
     {
         try
         {
-            $archivo = ($_FILES["archivo"]);
+            $archivo = ($_FILES["archivoCSV"]);
             Producto::CargarCSV($archivo["tmp_name"]);
             $payload = json_encode("Carga exitosa.");
             $response->getBody()->write($payload);

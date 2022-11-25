@@ -10,11 +10,15 @@ class Producto
     public function crearProducto()
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
-        $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO menu (nombre,precio,tipo) 
-        VALUES (:nombre, :precio, :tipo)");
+        $consulta = $objAccesoDatos->prepararConsulta("INSERT INTO menu (idProducto,nombre,precio,tipo) 
+        VALUES (:idProducto,:nombre, :precio, :tipo) ON DUPLICATE KEY UPDATE nombre = :nombreDos, precio=:precioDos,tipo=:tipoDos");
         $consulta->bindValue(':nombre', $this->nombre, PDO::PARAM_STR);
         $consulta->bindValue(':precio', $this->precio, PDO::PARAM_STR);
         $consulta->bindValue(':tipo', $this->tipo, PDO::PARAM_STR);
+        $consulta->bindValue(":idProducto", $this->idProducto, PDO::PARAM_INT);
+        $consulta->bindValue(':nombreDos', $this->nombre, PDO::PARAM_STR);
+        $consulta->bindValue(':precioDos', $this->precio, PDO::PARAM_STR);
+        $consulta->bindValue(':tipoDos', $this->tipo, PDO::PARAM_STR);
         $consulta->execute();
 
         return $objAccesoDatos->obtenerUltimoId();

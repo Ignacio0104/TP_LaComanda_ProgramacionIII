@@ -62,6 +62,7 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
     $group->post('/cerrarMesa', \MesaController::class . ':CerrarMesa')->add(new CheckSocioMiddleware());
     $group->delete('/borrarEmpleado', \EmpleadoController::class . ':BorrarUno')->add(new CheckSocioMiddleware());
     $group->post('/exportarCSV', \ProductoController::class . ':ExportarTabla')->add(new CheckSocioMiddleware());
+    $group->post('/cargarCSV', \ProductoController::class . ':ImportarTabla')->add(new CheckSocioMiddleware());
   })->add(new CheckTokenMiddleware());
 
 //Genero el token
