@@ -23,6 +23,7 @@
         public static function ExportarTabla($tabla, $clase, $ruta)
         {
             $listaProductos = Producto::obtenerTodos($tabla, $clase);
+            $ruta.="productos.csv";
             $file = fopen($ruta, "w+");
             foreach($listaProductos as $item)
             {
@@ -32,7 +33,15 @@
                     fwrite($file, $separadoPorComa.PHP_EOL); 
                 }                           
             }
-            fclose($file);   
+            fclose($file);  
+
+            if(file_exists($ruta)&&filesize($ruta)>0)
+            {
+                return true;
+            }else{
+                return false;
+            }
+            
         }
 
         public static function LeerCsv($archivo)

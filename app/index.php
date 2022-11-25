@@ -61,7 +61,7 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
     $group->post('/cerrarCuenta', \MesaController::class . ':CerrarCuenta')->add(new CheckMozoMiddleware());
     $group->post('/cerrarMesa', \MesaController::class . ':CerrarMesa')->add(new CheckSocioMiddleware());
     $group->delete('/borrarEmpleado', \EmpleadoController::class . ':BorrarUno')->add(new CheckSocioMiddleware());
-    $group->get('/exportarCSV', \ProductoController::class . ':ExportarTabla')->add(new CheckSocioMiddleware());
+    $group->post('/exportarCSV', \ProductoController::class . ':ExportarTabla')->add(new CheckSocioMiddleware());
   })->add(new CheckTokenMiddleware());
 
 //Genero el token

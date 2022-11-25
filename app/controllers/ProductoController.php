@@ -46,12 +46,19 @@ class ProductoController extends Producto
 
     public function ExportarTabla($request, $response, $args)
     {
+      $parametros = $request->getParsedBody();
+      $ruta = $parametros["rutaAbsoluta"];
         try
         {
-            CSV::ExportarTabla('producto', 'Producto',"productos.csv");
-            $payload = json_encode(array("mensaje" => "Tabla exportada con exito"));
+            if(CSV::ExportarTabla('producto', 'Producto',$ruta))
+            {
+              $payload = json_encode(array("mensaje" => "Tabla guardada con existo"));
+            }else{
+              $payload = json_encode(array("mensaje" => "Error, verifique la informacion ingresada"));
+            }
+            
             $response->getBody()->write($payload);
-            $newResponse = $response->withHeader('Content-Type', 'application/json');
+            $newResponse = $response->withHeader('Content-Type', 'text/csv');
         }
         catch(Throwable $mensaje)
         {
