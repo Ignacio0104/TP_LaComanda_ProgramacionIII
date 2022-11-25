@@ -5,6 +5,7 @@ class Producto
     public $idProducto;
     public $nombre;
     public $precio;
+    public $tipo;
 
     public function crearProducto()
     {
@@ -66,4 +67,20 @@ class Producto
         $consulta->bindValue(':id', $id, PDO::PARAM_INT);
         $consulta->execute();
     }
+
+    public static function CargarCSV($archivo)
+    {
+        $array = CSV::LeerCsv($archivo);
+        for($i = 0; $i < sizeof($array); $i++)
+        {
+            $campos = explode(",", $array[$i]); 
+            $producto = new Producto();
+            $producto->idProducto = $campos[0];
+            $producto->nombre = $campos[1];
+            $producto->precio = $campos[2];
+            $producto->tipo = $campos[3];
+            $producto->crearProducto();
+        }
+    }
+
 }

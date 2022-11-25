@@ -1,5 +1,6 @@
 <?php
 require_once './models/Producto.php';
+require_once './models/CSV.php';
 
 class ProductoController extends Producto
 {
@@ -41,5 +42,44 @@ class ProductoController extends Producto
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
+    }
+
+    public function ExportarTabla($request, $response, $args)
+    {
+        try
+        {
+            CSV::ExportarTabla('producto', 'Producto',"productos.csv");
+            $payload = json_encode(array("mensaje" => "Tabla exportada con exito"));
+            $response->getBody()->write($payload);
+            $newResponse = $response->withHeader('Content-Type', 'application/json');
+        }
+        catch(Throwable $mensaje)
+        {
+            printf("Error al listar: <br> $mensaje .<br>");
+        }
+        finally
+        {
+            return $newResponse;
+        }    
+    }
+
+    public function ImportarTabla($request, $response, $args)
+    {
+        try
+        {
+            $archivo = ($_FILES["archivo"]);
+            Producto::CargarCSV($archivo["tmp_name"]);
+            $payload = json_encode("Carga exitosa.");
+            $response->getBody()->write($payload);
+            $newResponse = $response->withHeader('Content-Type', 'application/json');
+        }
+        catch(Throwable $mensaje)
+        {
+            printf("Error al listar: <br> $mensaje .<br>");
+        }
+        finally
+        {
+            return $newResponse;
+        }    
     }
 }
