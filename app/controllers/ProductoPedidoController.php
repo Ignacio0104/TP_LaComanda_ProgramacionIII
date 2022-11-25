@@ -128,13 +128,13 @@ class ProductoPedidoController
         {
            if(ProductoPedido::verificarPedido($idComanda)==0){
               ProductoPedido::cerrarPendiente($idComanda);
-              $payload = json_encode(array("Exito!" => "La comanda ya está completa"));
+              $payload = json_encode(array("mensaje" => "La comanda ya está completa"));
            }else{
-            $payload = json_encode(array("Exito!" => "Se actualiazó el estado del pedido"));
+            $payload = json_encode(array("mensaje" => "Se actualiazó el estado del pedido"));
            }
          
         }else{
-          $payload = json_encode(array("Error!" => "No se encontró el pendiente. Verificar trabajador y id pedido"));
+          $payload = json_encode(array("mensaje" => "No se encontró el pendiente. Verificar trabajador y id pedido"));
         }
         $response->getBody()->write($payload);
         return $response

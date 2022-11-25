@@ -24,29 +24,16 @@ class ComandaController
             $payload = json_encode(array("mensaje" => "Comanda creada con exito. El codigo de comanda es $comanda->idComanda"));           
           }catch(\Throwable $ex)
           {
-              $payload=json_encode(array("Error!" => $ex->getMessage()));
+              $payload=json_encode(array("mensaje" => $ex->getMessage()));
           }
         }else{
-          $payload=json_encode(array("Error!" => "Numero de mesa no existe o la mesa ya está ocupada"));
+          $payload=json_encode(array("mensaje" => "Numero de mesa no existe o la mesa ya está ocupada"));
         }
        
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
-/*
-    public function TraerUno($request, $response, $args)
-    {
-        // Buscamos usuario por nombre
-        $usr = $args['usuario'];
-        $usuario = Empleado::obtenerUsuario($usr);
-        $payload = json_encode($usuario);
-
-        $response->getBody()->write($payload);
-        return $response
-          ->withHeader('Content-Type', 'application/json');
-    }
-*/
     public function TraerTodos($request, $response, $args)
     {
         $lista = Comanda::obtenerTodos();
@@ -61,7 +48,7 @@ class ComandaController
     public function TraerTodasTerminadas($request, $response, $args)
     {
         $lista = Comanda::obtenerComandasTerminadas();
-        $payload = json_encode(array("Pedidos listos para servir" => $lista));
+        $payload = json_encode(array("pedidosTerminados" => $lista));
 
         $response->getBody()->write($payload);
         return $response
@@ -71,7 +58,7 @@ class ComandaController
     public function TraerComandasTiempo($request, $response, $args)
     {
         $lista = Comanda::obtenerComandasTiempo();
-        $payload = json_encode(array("Pedidos pendientes" => $lista));
+        $payload = json_encode(array("pedidosPendientes" => $lista));
 
         $response->getBody()->write($payload);
         return $response
