@@ -48,6 +48,19 @@ class Comanda
         return $consulta->fetchObject('Comanda');
     }
 
+    public static function validarComandaEncuesta($idComanda,$idMesa)
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM comandas 
+        WHERE idComanda = :idComanda AND idMesa = :idMesa");
+        $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_STR);
+        $consulta->bindValue(':idMesa', $idMesa, PDO::PARAM_INT);
+        $consulta->execute();
+
+        return $consulta->fetchObject('Comanda');
+    }
+
+
     public static function obtenerComandasTerminadas()
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();

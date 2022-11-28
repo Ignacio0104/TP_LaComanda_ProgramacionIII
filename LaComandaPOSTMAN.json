@@ -60,7 +60,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njg3MzIyODcsImV4cCI6MTY2ODc5MjI4NywiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsidXN1YXJpbyI6IlBlZHJvIiwiY2xhdmUiOiIkMnkkMTAkN21vWlNHckV6MURcL3BweFI1cWFDWk9DUngxRkg5aGdWNEE2bzQ1TUZuZmN5SzZ4LnZyUk4yIiwicGVyZmlsX3VzdWFyaW8iOiJzb2NpbyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.jm7rZ8MjCKN9Kby9RwHZWvOrr2Dbax7yHyig40nrE5k",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njk0Nzg1MjgsImV4cCI6MTY2OTUzODUyOCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDAwLCJ1c3VhcmlvIjoiSWduYWNpbyIsImNsYXZlIjoiJDJ5JDEwJFV1WGJJb24ucW5BR3EzMmRkLlR5T2UxN0pjcXIwR05relhKOHpqV2dkSzluZU5DYWRLZEhlIiwicGVyZmlsX3VzdWFyaW8iOiJzb2NpbyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.yie5FCCOGd8hBH0NQSMmuyGytZVfHrykzHlruc8KTZs",
 							"type": "string"
 						}
 					]
@@ -72,17 +72,17 @@
 					"formdata": [
 						{
 							"key": "nombre",
-							"value": "Gaseosa",
+							"value": "Hamburguesa de garbanzo",
 							"type": "text"
 						},
 						{
 							"key": "precio",
-							"value": "500",
+							"value": "1700",
 							"type": "text"
 						},
 						{
 							"key": "tipo",
-							"value": "bartender",
+							"value": "cocinero",
 							"type": "text"
 						}
 					]
@@ -160,7 +160,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxMjk5ODIsImV4cCI6MTY2OTE4OTk4MiwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.1pbEGADUNpScrjkzp8e48qmu41HoLIOLIb_ghHr2aok",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njk0Nzg5MTIsImV4cCI6MTY2OTUzODkxMiwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.S1OrizvJwL0wNlUf58iQez4N7MKRehG_bmxE0cd4x94",
 							"type": "string"
 						}
 					]
@@ -172,12 +172,7 @@
 					"formdata": [
 						{
 							"key": "idMesa",
-							"value": "90000",
-							"type": "text"
-						},
-						{
-							"key": "legajo",
-							"value": "1006",
+							"value": "10000",
 							"type": "text"
 						}
 					]
@@ -205,7 +200,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNDk2MzAsImV4cCI6MTY2OTIwOTYzMCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.9cQoSQ7T0ncaak6LJwb9IrIsMHwS_r3SNQj_p-eWnU0",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njk0Nzg5MTIsImV4cCI6MTY2OTUzODkxMiwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.S1OrizvJwL0wNlUf58iQez4N7MKRehG_bmxE0cd4x94",
 							"type": "string"
 						}
 					]
@@ -217,13 +212,13 @@
 					"formdata": [
 						{
 							"key": "mesa",
-							"value": "90000",
+							"value": "10000",
 							"type": "text"
 						},
 						{
 							"key": "URLImagen",
 							"type": "file",
-							"src": "/C:/Users/Nacho/Pictures/1614352808020.jpg"
+							"src": "/C:/Users/Nacho/Pictures/Fondo2.jpg"
 						}
 					]
 				},
@@ -280,7 +275,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNTcyMDgsImV4cCI6MTY2OTIxNzIwOCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.8BfteJUxsestvl18JGrOOLQwQSIm-ihx6MgxzrCFosQ",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njk0Nzg5MTIsImV4cCI6MTY2OTUzODkxMiwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.S1OrizvJwL0wNlUf58iQez4N7MKRehG_bmxE0cd4x94",
 							"type": "string"
 						}
 					]
@@ -292,17 +287,12 @@
 					"formdata": [
 						{
 							"key": "idComanda",
-							"value": "6rq5v",
+							"value": "erpdd",
 							"type": "text"
 						},
 						{
 							"key": "idPlato",
-							"value": "4",
-							"type": "text"
-						},
-						{
-							"key": "minutos",
-							"value": "30",
+							"value": "15",
 							"type": "text"
 						}
 					]
@@ -332,7 +322,7 @@
 					"formdata": [
 						{
 							"key": "legajo",
-							"value": "1006",
+							"value": "1000",
 							"type": "text"
 						},
 						{
@@ -357,22 +347,29 @@
 			"response": []
 		},
 		{
-			"name": "Traer pendientes",
+			"name": "Traer pendientes por sector",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNTczODIsImV4cCI6MTY2OTIxNzM4MiwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDEwLCJ1c3VhcmlvIjoiQnJhbmRvbiIsImNsYXZlIjoiJDJ5JDEwJGRMNjZucTIwVTE0TlN3TkkubDY4ZU9pRy5Jd1l2Ymw2REhaOUNud0FqamlLYVdLaEJGODhDIiwicGVyZmlsX3VzdWFyaW8iOiJjb2NpbmVybyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.M1Ig5NiqdxAF06TxqGEEQc1CrpDtupZwZgU0Kv8swu8",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njk0NzkyNDgsImV4cCI6MTY2OTUzOTI0OCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDExLCJ1c3VhcmlvIjoiQmFybmV5IiwiY2xhdmUiOiIkMnkkMTAkV29NYTFWb1kzWHhJNTBUeFZGU2w5TzBCSTRWZTlCNUFZbW94bG5aXC9YMm5lelMzMDR5TjUyIiwicGVyZmlsX3VzdWFyaW8iOiJjb2NpbmVybyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.7-Ltn-NROk_JsAN0qSIoukrtlCi1owlOYJ5NwDM5WGc",
 							"type": "string"
 						}
 					]
 				},
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
 				"url": {
-					"raw": "http://localhost:666/usuarios/traerPendientes",
+					"raw": "http://localhost:666/usuarios/traerPendientesSector",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -380,7 +377,57 @@
 					"port": "666",
 					"path": [
 						"usuarios",
-						"traerPendientes"
+						"traerPendientesSector"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asignar pendientes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njk0NzkyNDgsImV4cCI6MTY2OTUzOTI0OCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDExLCJ1c3VhcmlvIjoiQmFybmV5IiwiY2xhdmUiOiIkMnkkMTAkV29NYTFWb1kzWHhJNTBUeFZGU2w5TzBCSTRWZTlCNUFZbW94bG5aXC9YMm5lelMzMDR5TjUyIiwicGVyZmlsX3VzdWFyaW8iOiJjb2NpbmVybyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.7-Ltn-NROk_JsAN0qSIoukrtlCi1owlOYJ5NwDM5WGc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idPedido",
+							"value": "129",
+							"type": "text"
+						},
+						{
+							"key": "idProducto",
+							"value": "18",
+							"type": "text"
+						},
+						{
+							"key": "minutosDemora",
+							"value": "30",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/usuarios/asignarPendientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"usuarios",
+						"asignarPendientes"
 					]
 				}
 			},
@@ -392,7 +439,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:666/esperaMesa?idMesa=90000&idComanda=6rq5v",
+					"raw": "http://localhost:666/esperaMesa?idMesa=10000&idComanda=erpdd",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -404,11 +451,11 @@
 					"query": [
 						{
 							"key": "idMesa",
-							"value": "90000"
+							"value": "10000"
 						},
 						{
 							"key": "idComanda",
-							"value": "6rq5v"
+							"value": "erpdd"
 						}
 					]
 				}
@@ -423,7 +470,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxMzAxMjYsImV4cCI6MTY2OTE5MDEyNiwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDEwLCJ1c3VhcmlvIjoiQnJhbmRvbiIsImNsYXZlIjoiJDJ5JDEwJGRMNjZucTIwVTE0TlN3TkkubDY4ZU9pRy5Jd1l2Ymw2REhaOUNud0FqamlLYVdLaEJGODhDIiwicGVyZmlsX3VzdWFyaW8iOiJjb2NpbmVybyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.AuOK_7jOCwOzH-ivnCufAQ4mchYwpzRlj7h3l2p9HVc",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njk0NzkyNDgsImV4cCI6MTY2OTUzOTI0OCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDExLCJ1c3VhcmlvIjoiQmFybmV5IiwiY2xhdmUiOiIkMnkkMTAkV29NYTFWb1kzWHhJNTBUeFZGU2w5TzBCSTRWZTlCNUFZbW94bG5aXC9YMm5lelMzMDR5TjUyIiwicGVyZmlsX3VzdWFyaW8iOiJjb2NpbmVybyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.7-Ltn-NROk_JsAN0qSIoukrtlCi1owlOYJ5NwDM5WGc",
 							"type": "string"
 						}
 					]
@@ -453,7 +500,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNTc1NTMsImV4cCI6MTY2OTIxNzU1MywiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA4LCJ1c3VhcmlvIjoiSm9zZSIsImNsYXZlIjoiJDJ5JDEwJHpYTERJTkJyVFJJMmNyQ0RXMFNyRXVXNmdkVmFoYzJJRWF6M0NFM05PQWpUT1hNWjlxRjFlIiwicGVyZmlsX3VzdWFyaW8iOiJjZXJ2ZWNlcm8ifSwiYXBwIjoiVGVzdCBKV1QifQ.qlp8O8qPZmCReqLro6lwpVkYyUJPz9FzU1v-krFsHMY",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njk0Nzk1MzYsImV4cCI6MTY2OTUzOTUzNiwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDExLCJ1c3VhcmlvIjoiQmFybmV5IiwiY2xhdmUiOiIkMnkkMTAkV29NYTFWb1kzWHhJNTBUeFZGU2w5TzBCSTRWZTlCNUFZbW94bG5aXC9YMm5lelMzMDR5TjUyIiwicGVyZmlsX3VzdWFyaW8iOiJjb2NpbmVybyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.ibACRSiWnhWF2uUjFCDi4GpXJoczXcLYfK9J9008y-M",
 							"type": "string"
 						}
 					]
@@ -465,12 +512,12 @@
 					"formdata": [
 						{
 							"key": "idPendiente",
-							"value": "115",
+							"value": "129",
 							"type": "text"
 						},
 						{
 							"key": "idComanda",
-							"value": "6rq5v",
+							"value": "erpdd",
 							"type": "text"
 						}
 					]
@@ -498,7 +545,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNDkyMjgsImV4cCI6MTY2OTIwOTIyOCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.irDDPaajNrv1ISvHhvWCyOD8QB_8PYER--iBuUFqo8M",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njk0Nzk1NzQsImV4cCI6MTY2OTUzOTU3NCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA5LCJ1c3VhcmlvIjoiTWF4aW1pbGlhbm8iLCJjbGF2ZSI6IiQyeSQxMCRQcXhibXhMTmRBR0V6MkVaMk5TQ1ZlbkNoQU9LVzNkampJcHc1ZHlSRGtTYThWSDdUQW1uNiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.CWLw-qRHQ-rKKAdlJZnE99unUQdYS5YydNS2JVh1cIU",
 							"type": "string"
 						}
 					]
@@ -528,7 +575,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNTI3ODksImV4cCI6MTY2OTIxMjc4OSwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.uoPCYWKf-hmN3pxcNY4BXjTJ2v-uugcZqfW66B6FQuw",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njk0Nzk1NzQsImV4cCI6MTY2OTUzOTU3NCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA5LCJ1c3VhcmlvIjoiTWF4aW1pbGlhbm8iLCJjbGF2ZSI6IiQyeSQxMCRQcXhibXhMTmRBR0V6MkVaMk5TQ1ZlbkNoQU9LVzNkampJcHc1ZHlSRGtTYThWSDdUQW1uNiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.CWLw-qRHQ-rKKAdlJZnE99unUQdYS5YydNS2JVh1cIU",
 							"type": "string"
 						}
 					]
@@ -537,7 +584,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idComanda\": \"6rq5v\"\r\n}",
+					"raw": "{\r\n    \"idComanda\": \"erpdd\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -567,7 +614,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNTUwOTYsImV4cCI6MTY2OTIxNTA5NiwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.BtTfUjUbXm_Rb4dQsJyynmbn_5fQpruPN7BlFIP1v_k",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njk0Nzk1NzQsImV4cCI6MTY2OTUzOTU3NCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA5LCJ1c3VhcmlvIjoiTWF4aW1pbGlhbm8iLCJjbGF2ZSI6IiQyeSQxMCRQcXhibXhMTmRBR0V6MkVaMk5TQ1ZlbkNoQU9LVzNkampJcHc1ZHlSRGtTYThWSDdUQW1uNiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.CWLw-qRHQ-rKKAdlJZnE99unUQdYS5YydNS2JVh1cIU",
 							"type": "string"
 						}
 					]
@@ -579,12 +626,12 @@
 					"formdata": [
 						{
 							"key": "idMesa",
-							"value": "90000",
+							"value": "10000",
 							"type": "text"
 						},
 						{
-							"key": "estado",
-							"value": "Cliente pagando",
+							"key": "idComanda",
+							"value": "erpdd",
 							"type": "text"
 						}
 					]
@@ -612,7 +659,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkxNTg1ODcsImV4cCI6MTY2OTIxODU4NywiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDAwLCJ1c3VhcmlvIjoiSWduYWNpbyIsImNsYXZlIjoiJDJ5JDEwJFV1WGJJb24ucW5BR3EzMmRkLlR5T2UxN0pjcXIwR05relhKOHpqV2dkSzluZU5DYWRLZEhlIiwicGVyZmlsX3VzdWFyaW8iOiJzb2NpbyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.MMNUnXjbPxVSQM_tjTQcZVKzK_uXb3wzWtokEafYVxA",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njk0ODAxMTgsImV4cCI6MTY2OTU0MDExOCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDAwLCJ1c3VhcmlvIjoiSWduYWNpbyIsImNsYXZlIjoiJDJ5JDEwJFV1WGJJb24ucW5BR3EzMmRkLlR5T2UxN0pjcXIwR05relhKOHpqV2dkSzluZU5DYWRLZEhlIiwicGVyZmlsX3VzdWFyaW8iOiJzb2NpbyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.3ql3jvdt6_sorblspYDKItPQdkDBcZ2C14vhRnRolsM",
 							"type": "string"
 						}
 					]
@@ -624,7 +671,12 @@
 					"formdata": [
 						{
 							"key": "idMesa",
-							"value": "90000",
+							"value": "10000",
+							"type": "text"
+						},
+						{
+							"key": "idComanda",
+							"value": "njn5c",
 							"type": "text"
 						}
 					]
@@ -647,6 +699,16 @@
 		{
 			"name": "Traer pendientes socio",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkzMzczNDAsImV4cCI6MTY2OTM5NzM0MCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDAwLCJ1c3VhcmlvIjoiSWduYWNpbyIsImNsYXZlIjoiJDJ5JDEwJFV1WGJJb24ucW5BR3EzMmRkLlR5T2UxN0pjcXIwR05relhKOHpqV2dkSzluZU5DYWRLZEhlIiwicGVyZmlsX3VzdWFyaW8iOiJzb2NpbyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.x_K5pTr24NV4g0uMCkxJzcmHLJJlCxtCkkgxQZP60JM",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -659,6 +721,208 @@
 					"path": [
 						"usuarios",
 						"traerPendientesSocio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar empleado",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkyMzk1MjEsImV4cCI6MTY2OTI5OTUyMSwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDAwLCJ1c3VhcmlvIjoiSWduYWNpbyIsImNsYXZlIjoiJDJ5JDEwJFV1WGJJb24ucW5BR3EzMmRkLlR5T2UxN0pjcXIwR05relhKOHpqV2dkSzluZU5DYWRLZEhlIiwicGVyZmlsX3VzdWFyaW8iOiJzb2NpbyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.2-gNDzFBAggjq5VMBrn3Q0E0Mhhi7Q5MSmhZhP56w0g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:666/usuarios/borrarEmpleado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"usuarios",
+						"borrarEmpleado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer pendientes por usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkzMjczNzEsImV4cCI6MTY2OTM4NzM3MSwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDA2LCJ1c3VhcmlvIjoiRXJpYyIsImNsYXZlIjoiJDJ5JDEwJGpDOUZJODNiWExLTTVkbEZpMVpcL09PRVh6d0xYSFppRmo5di5LWkM3bkt1N0J2RTdDbnI0LiIsInBlcmZpbF91c3VhcmlvIjoibW96byJ9LCJhcHAiOiJUZXN0IEpXVCJ9.92K-cSd__r0iXV7n0u7U1jBufjKnowmuf_BoPwXJ7pI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:666/usuarios/traerPendientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"usuarios",
+						"traerPendientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Exportar CSV",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njk2NDQzMzgsImV4cCI6MTY2OTcwNDMzOCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDAwLCJ1c3VhcmlvIjoiSWduYWNpbyIsImNsYXZlIjoiJDJ5JDEwJFV1WGJJb24ucW5BR3EzMmRkLlR5T2UxN0pjcXIwR05relhKOHpqV2dkSzluZU5DYWRLZEhlIiwicGVyZmlsX3VzdWFyaW8iOiJzb2NpbyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.X-0noB5wByLmtz6MsE2WPGYRvVO-dc9K-HIi656TWFs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:666/usuarios/exportarCSV",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"usuarios",
+						"exportarCSV"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Importar CSV",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Njk2NDQzMzgsImV4cCI6MTY2OTcwNDMzOCwiYXVkIjoiMDg5NTYzYzE3ZmJiODgxMWI0ODI3OWM0OGUyYWYwMWJjM2IyYTkzOSIsImRhdGEiOnsibGVnYWpvIjoxMDAwLCJ1c3VhcmlvIjoiSWduYWNpbyIsImNsYXZlIjoiJDJ5JDEwJFV1WGJJb24ucW5BR3EzMmRkLlR5T2UxN0pjcXIwR05relhKOHpqV2dkSzluZU5DYWRLZEhlIiwicGVyZmlsX3VzdWFyaW8iOiJzb2NpbyJ9LCJhcHAiOiJUZXN0IEpXVCJ9.X-0noB5wByLmtz6MsE2WPGYRvVO-dc9K-HIi656TWFs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "archivoCSV",
+							"type": "file",
+							"src": "/C:/xampp/htdocs/ProgramacionLaboIII/TP_LaComanda/app/productos.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/usuarios/cargarCSV",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"usuarios",
+						"cargarCSV"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Encuesta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idMesa",
+							"value": "10000",
+							"type": "text"
+						},
+						{
+							"key": "idComanda",
+							"value": "erpdd",
+							"type": "text"
+						},
+						{
+							"key": "puntuacionMesa",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "puntuacionRestaurante",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "puntuacionMozo",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "puntuacionCocinero",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "comentarios",
+							"value": "Excelente servicio",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:666/encuesta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "666",
+					"path": [
+						"encuesta"
 					]
 				}
 			},

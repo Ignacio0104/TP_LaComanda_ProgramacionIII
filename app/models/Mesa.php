@@ -61,6 +61,7 @@ class Mesa
         return $consulta->fetchObject('Mesa');
     }
 
+
     public static function modificarEstadoMesa($mesa)
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();

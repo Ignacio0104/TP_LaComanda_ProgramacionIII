@@ -25,6 +25,7 @@ require_once './controllers/ProductoController.php';
 require_once './controllers/MesaController.php';
 require_once './controllers/ComandaController.php';
 require_once './controllers/ProductoPedidoController.php';
+require_once './controllers/EncuestaController.php';
 
 // Load ENV
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -68,6 +69,7 @@ $app->group('/usuarios', function (RouteCollectorProxy $group) {
 //Genero el token
 $app->post('/login', \AutentificadorController::class . ':CrearTokenLogin');
 $app->get('/esperaMesa', \MesaController::class . ':TraerEsperaMesa');
+$app->post('/encuesta', \EncuestaController::class . ':CargarUno');
 
 
 $app->get('[/]', function (Request $request, Response $response) {    

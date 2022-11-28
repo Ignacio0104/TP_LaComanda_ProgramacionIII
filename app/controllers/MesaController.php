@@ -7,9 +7,12 @@ class MesaController extends Mesa
     public $estados = ["cliente esperado pedido","cliente comiendo","cliente pagando","cerrado"];
     public function CargarUno($request, $response, $args)
     {
+        $header = $request->getHeaderLine(("Authorization")); 
+        $token = trim(explode("Bearer",$header)[1]);
+        $data = AutentificadorJWT::ObtenerData($token);
         $parametros = $request->getParsedBody();
         $idMesa = $parametros['idMesa'];
-        $legajo = $parametros["legajo"];
+        $legajo = $data->legajo;
         // Creamos el usuario
         try{      
             $mesa = new Mesa();
@@ -42,6 +45,7 @@ class MesaController extends Mesa
         return $response
           ->withHeader('Content-Type', 'application/json');
     }
+
 
     public function TraerEsperaMesa($request, $response, $args)
     {
