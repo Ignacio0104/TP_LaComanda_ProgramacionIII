@@ -81,6 +81,7 @@ class ProductoPedidoController
         $token = trim(explode("Bearer",$header)[1]);
         $data = AutentificadorJWT::ObtenerData($token);
         $lista = ProductoPedido::obtenerPendientePorSector($data->perfil_usuario);
+        echo $data->perfil_usuario;
         if(!$lista)
         {
           $payload = json_encode(array("listaDePedidos" => "Este sector no tiene pendientes"));

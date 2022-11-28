@@ -12,7 +12,7 @@
                 $separadoPorComa = implode(",", (array)$item);  
                 if($file)
                 {
-                    fwrite($file, $separadoPorComa); 
+                    fwrite($file, $separadoPorComa.",\r\n"); 
                 }                           
             }
             fclose($file);  
