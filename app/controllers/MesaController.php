@@ -29,7 +29,7 @@ class MesaController extends Mesa
             }    
         }catch(\Throwable $ex)
         {
-            $payload=json_encode(array("Error!" => $ex->getMessage()));
+            $payload=json_encode(array("mensaje" => $ex->getMessage()));
         }
         $response->getBody()->write($payload);
         return $response
@@ -66,19 +66,23 @@ class MesaController extends Mesa
       $parametros = $request->getParsedBody();
       $idMesa = $parametros['idMesa'];
       $idComanda = $parametros['idComanda'];
-      $lista=Mesa::traerCosto($idComanda);
-      if(Mesa::modificarEstadoConIdMesa($idMesa)>0 && count($lista)>=1){
-        $mensaje = " Cuenta: ";
-        $montoFinal=0;
-        for ($i=0; $i < count($lista); $i++) { 
-          $mensaje.=" | ".$lista[$i]["nombre"]."- $".$lista[$i]["precio"];
-          $montoFinal+=$lista[$i]["precio"];
+      $lista=Mesa::traerCosto($idComanda,$idMesa);
+      if($lista!=null)
+      {
+        if(Mesa::modificarEstadoConIdMesa($idMesa)>0 && count($lista)>=1){
+          $mensaje = " Cuenta: ";
+          $montoFinal=0;
+          for ($i=0; $i < count($lista); $i++) { 
+            $mensaje.=" | ".$lista[$i]["nombre"]."- $".$lista[$i]["precio"];
+            $montoFinal+=$lista[$i]["precio"];
+          }
+            $payload = json_encode(array("mensaje" => "Cuenta cerrada con exito".$mensaje." | Precio FINAL $".$montoFinal));     
+        }else{
+          $payload = json_encode(array("mensaje" => "Favor verifique la información ingresada"));
         }
-          $payload = json_encode(array("mensaje" => "Cuenta cerrada con exito".$mensaje." | Precio FINAL $".$montoFinal));     
       }else{
-        $payload = json_encode(array("mensaje" => "Favor verifique la información ingresada"));
+        $payload = json_encode(array("mensaje" => "Revise que la comanda y la mesa coincidan"));
       }
-
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');
@@ -90,16 +94,19 @@ class MesaController extends Mesa
       $idMesa = $parametros['idMesa'];
       $idComanda = $parametros['idComanda'];
 
-      if(Mesa::cerrarMesaSQL($idMesa)>0){
-        if(Mesa::cargarFactura($idComanda)==1)
+      try{
+        if(Mesa::cargarFactura($idComanda,$idMesa)==1 && Mesa::cerrarMesaSQL($idMesa)>0)
         {
           $payload = json_encode(array("mensaje" => "Mesa cerrada y factura cargada"));
-        }else{
-          $payload = json_encode(array("mensaje" => "Mesa cerrada pero no se pudo cargar la factura"));
         }
-      }else{
+        else{
         $payload = json_encode(array("mensaje" => "Favor verifique la información ingresada"));
+        }
+      }catch(\Throwable $ex)
+      {
+          $payload=json_encode(array("mensaje" => "Favor verifique la información ingresada"));
       }
+
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');

@@ -90,30 +90,32 @@ class Mesa
         return $consulta->rowCount();
     }
 
-    public static function traerCosto($idComanda)
+    public static function traerCosto($idComanda,$idMesa)
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDato->prepararConsulta("SELECT menu.nombre, menu.precio 
         FROM menu INNER JOIN pedidos ON menu.idProducto = pedidos.idPlato 
-        WHERE pedidos.idComanda=:idComanda");
+        WHERE pedidos.idComanda=:idComanda AND pedidos.idMesa=:idMesa");
         $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_INT);
+        $consulta->bindValue(':idMesa', $idMesa, PDO::PARAM_STR);
         $consulta->execute();
 
         return $consulta->fetchAll();
     }
 
-    public static function cargarFactura($idComanda)
+    public static function cargarFactura($idComanda,$idMesa)
     {
         $objAccesoDato = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDato->prepararConsulta("INSERT INTO facturas(idComanda, idMesa,fecha,monto)
         VALUES (:idComanda, (SELECT idMesa FROM comandas where idComanda=:idComandaDos),:fecha, 
         (SELECT SUM(precio) FROM menu INNER JOIN pedidos ON menu.idProducto = pedidos.idPlato 
-        WHERE pedidos.idComanda=:idComandaTres))");
+        WHERE pedidos.idComanda=:idComandaTres AND pedidos.idMesa = :idMesa))");
         $fecha = new DateTime(date("d-m-Y"));
         $consulta->bindValue(':fecha', date_format($fecha, 'Y-m-d'));
         $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_STR);
         $consulta->bindValue(':idComandaDos', $idComanda, PDO::PARAM_STR);
         $consulta->bindValue(':idComandaTres', $idComanda, PDO::PARAM_STR);
+        $consulta->bindValue(':idMesa', $idMesa, PDO::PARAM_INT);
         $consulta->execute();
         return $consulta->rowCount();
     }
