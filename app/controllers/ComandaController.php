@@ -71,16 +71,12 @@ class ComandaController
         $datos = json_decode(file_get_contents("php://input"), true);
         $idComanda = $datos['idComanda'];
         
-        if(Comanda::cerrarComanda($idComanda)==1){
-          if(Comanda::cambiarEstados($idComanda)==1){
-            $payload = json_encode(array("mensaje" => "Comanda cerrada"));
-          }else{
-            $payload = json_encode(array("mensaje" => "Error al cambiar estados"));
-          }
+        if(Comanda::cambiarEstados($idComanda)>0){
+          $payload = json_encode(array("mensaje" => "Comanda cerrada"));
         }else{
-          $payload = json_encode(array("mensaje" => "Error, verificar informacion"));
+          $payload = json_encode(array("mensaje" => "Error al cambiar estados"));
         }
-     
+        
         $response->getBody()->write($payload);
         return $response
           ->withHeader('Content-Type', 'application/json');

@@ -124,7 +124,7 @@ class ProductoPedidoController
 
         $idPendiente = $parametros["idPendiente"];
         $idComanda = $parametros["idComanda"];
-        $retorno = ProductoPedido::ModificarEstadoPedido($data->legajo,$idPendiente);
+        $retorno = ProductoPedido::ModificarEstadoPedido($data->legajo,$idPendiente,$idComanda);
         if($retorno === 1)
         {
            if(ProductoPedido::verificarPedido($idComanda)==0){

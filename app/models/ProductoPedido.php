@@ -104,16 +104,19 @@ class ProductoPedido
 
         return $consulta->fetchAll(PDO::FETCH_CLASS, 'ProductoPedido');
     }
-    public static function ModificarEstadoPedido($legajoEmpleado,$idPedido)
+    public static function ModificarEstadoPedido($legajoEmpleado,$idPedido,$idComanda)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
         $consulta = $objAccesoDatos->prepararConsulta("UPDATE pedidos SET estado = 'Listo para servir', 
         horaFinalizacion = :horaFinalizacion 
-        WHERE legajoEmpleado = :legajoEmpleado AND idPendiente = :idPedido AND estado = 'En preparacion'");
+        WHERE legajoEmpleado = :legajoEmpleado AND idPendiente = :idPedido 
+        AND estado = 'En preparacion'
+        AND idComanda=:idComanda");
         $hora = new DateTime(date("h:i:sa"));
         $consulta->bindValue(':horaFinalizacion', date_format($hora, 'H:i:sa'));
         $consulta->bindValue(':legajoEmpleado', $legajoEmpleado, PDO::PARAM_INT);
         $consulta->bindValue(':idPedido', $idPedido, PDO::PARAM_INT);
+        $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_STR);
         $consulta->execute();
 
         return $consulta->rowCount();
