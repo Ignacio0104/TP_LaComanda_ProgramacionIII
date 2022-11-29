@@ -18,10 +18,10 @@ class CheckSocioMiddleware{
           echo "** El usuario es socio **";
           $response= $handler->handle($request);
         }else{
-          $response->getBody()->write(json_encode(array('Error!!' => "Esta tarea solo puede realizarla un socio")));
+          $response->getBody()->write(json_encode(array('mensaje' => "Esta tarea solo puede realizarla un socio")));
         }     
       } catch (Exception $e) {
-        $response->getBody()->write(json_encode(array('Error - Token invalido' => $e->getMessage())));
+        $response->getBody()->write(json_encode(array('mensaje' => $e->getMessage())));
         $response = $response->withStatus(401);
       }
       return $response

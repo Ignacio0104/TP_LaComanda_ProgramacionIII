@@ -13,7 +13,7 @@ class ProductoPedidoController
           
           $pendiente = new ProductoPedido();
           
-          $comandaAuxiliar = Comanda::obtenerComandaPorIdentificador($parametros["idComanda"]);
+          $comandaAuxiliar = Comanda::obtenerComandasPorIdPendientes($parametros["idComanda"]);
          
           $productoAuxiliar = Producto::obtenerProductoPorId($parametros["idPlato"]);
           if($comandaAuxiliar!= null && $productoAuxiliar != null)

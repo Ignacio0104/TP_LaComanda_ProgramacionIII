@@ -16,9 +16,7 @@
                 }                           
             }
             fclose($file);  
-
-            return $ruta;
-            
+            return $ruta;     
         }
 
         public static function LeerCsv($archivo)

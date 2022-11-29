@@ -48,6 +48,17 @@ class Comanda
         return $consulta->fetchObject('Comanda');
     }
 
+    public static function obtenerComandasPorIdPendientes($idComanda)
+    {
+        $objAccesoDatos = AccesoDatos::obtenerInstancia();
+        $consulta = $objAccesoDatos->prepararConsulta("SELECT * FROM comandas 
+        WHERE idComanda = :idComanda AND estado = 'En preparacion'");
+        $consulta->bindValue(':idComanda', $idComanda, PDO::PARAM_STR);
+        $consulta->execute();
+
+        return $consulta->fetchObject('Comanda');
+    }
+
     public static function validarComandaEncuesta($idComanda,$idMesa)
     {
         $objAccesoDatos = AccesoDatos::obtenerInstancia();
